@@ -2,7 +2,6 @@
 #include <DHT.h>
 
 #define DHTTYPE DHT11
-
 #define DHTPIN 2
 #define LEDPIN 8
 
@@ -11,6 +10,9 @@ DHT dht(DHTPIN, DHTTYPE);
 void setup()
 {
     Serial.begin(9600);
+    Serial.println("Temp|Humi");
+
+    pinMode(LEDPIN, OUTPUT);
     dht.begin();
 }
 
@@ -21,17 +23,13 @@ void loop()
 
     if (isnan(humi) || isnan(tempC))
     {
-        Serial.println("Error reading data!");
+        Serial.println("nan,nan");
         return;
     }
 
-    Serial.print("Temp : ");
     Serial.print(tempC);
-    Serial.print(" °C\n");
-
-    Serial.print("Humi : ");
-    Serial.print(humi);
-    Serial.print(" %\n");
+    Serial.print("|");
+    Serial.println(humi);
 
     if (tempC > 30)
     {
