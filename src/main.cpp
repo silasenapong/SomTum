@@ -1,44 +1,24 @@
 #include <Arduino.h>
-#include <DHT.h>
+#include "DHTZ.h"
 
-#define DHTTYPE DHT11
-#define DHTPIN 2
-#define LEDPIN 8
+#define DelayMs 1000
 
-DHT dht(DHTPIN, DHTTYPE);
+DHTZ DHTSensor;
 
 void setup()
 {
     Serial.begin(9600);
     Serial.println("Temp|Humi");
 
-    pinMode(LEDPIN, OUTPUT);
-    dht.begin();
+    DHTSensor.DHTZInit();
 }
 
 void loop()
 {
-    float humi = dht.readHumidity();
-    float tempC = dht.readTemperature();
 
-    if (isnan(humi) || isnan(tempC))
-    {
-        Serial.println("nan,nan");
-        return;
-    }
+    Serial.print(DHTSensor.DHTZReadTemp());
+    Serial.print(",");
+    Serial.println(DHTSensor.DHTZReadHumid());
 
-    Serial.print(tempC);
-    Serial.print("|");
-    Serial.println(humi);
-
-    if (tempC > 30)
-    {
-        digitalWrite(LEDPIN, HIGH);
-    }
-    else
-    {
-        digitalWrite(LEDPIN, LOW);
-    }
-
-    delay(2000);
+    delay(DelayMs);
 }
