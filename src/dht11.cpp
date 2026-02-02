@@ -1,9 +1,8 @@
-#include <Arduino.h>
+/*
 #include <DHT.h>
 
 #define DHTTYPE DHT11
 #define DHTPIN 2
-#define LEDPIN 8
 
 DHT dht(DHTPIN, DHTTYPE);
 
@@ -42,3 +41,4 @@ void loop()
 
     delay(2000);
 }
+*/
