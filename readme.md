@@ -12,12 +12,12 @@
 
 # Main todo list
 
-<!-- แบ่งงานกันทำ ใครเอาหัวข้ออะไรให้ใส่ comment หลังหัวข้อนั้นๆ -->
+<!-- แบ่งงานกันทำ ใครเอาหัวข้ออะไรให้ใส่ (ชื่อเล่น) หลังหัวข้อนั้นๆ -->
 <!-- format data  -->
 
 - [] GUI
 - [] อ่านค่าจากไฟล์ .txt .xlsx
-- [] save data to computer <!-- Pai -->
+- [] save data to computer (Pai)
 - [] Clean data
 - [] Basic stat (min,max,mean)
 - [] Data visualization
