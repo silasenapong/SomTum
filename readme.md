@@ -17,7 +17,7 @@
 
 - [] GUI
 - [] อ่านค่าจากไฟล์ .txt .xlsx
-- [] save data to computer
+- [] save data to computer <!-- Pai -->
 - [] Clean data
 - [] Basic stat (min,max,mean)
 - [] Data visualization
