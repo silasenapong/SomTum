@@ -28,3 +28,4 @@ int main()
 
 // compile code
 // g++ SerialPort.cpp main_pc.cpp -o Tracker.exe
+// path Y:\file\CMU\year_2\SomTum\SomTum\pc_app
