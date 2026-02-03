@@ -1,9 +1,9 @@
 /*
-* Author: Manash Kumar Mandal
-* Modified Library introduced in Arduino Playground which does not work
-* This works perfectly
-* LICENSE: MIT
-*/
+ * Author: Manash Kumar Mandal
+ * Modified Library introduced in Arduino Playground which does not work
+ * This works perfectly
+ * LICENSE: MIT
+ */
 
 #pragma once
 
@@ -20,6 +20,7 @@ private:
     bool connected;
     COMSTAT status;
     DWORD errors;
+
 public:
     explicit SerialPort(const char *portName);
     ~SerialPort();

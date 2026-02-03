@@ -1,9 +1,9 @@
 /*
-* Author: Manash Kumar Mandal
-* Modified Library introduced in Arduino Playground which does not work
-* This works perfectly
-* LICENSE: MIT
-*/
+ * Author: Manash Kumar Mandal
+ * Modified Library introduced in Arduino Playground which does not work
+ * This works perfectly
+ * LICENSE: MIT
+ */
 
 #include "SerialPort.hpp"
 
@@ -89,9 +89,9 @@ int SerialPort::readSerialPort(const char *buffer, unsigned int buf_size)
         }
     }
 
-    memset((void*) buffer, 0, buf_size);
+    memset((void *)buffer, 0, buf_size);
 
-    if (ReadFile(this->handler, (void*) buffer, toRead, &bytesRead, NULL))
+    if (ReadFile(this->handler, (void *)buffer, toRead, &bytesRead, NULL))
     {
         return bytesRead;
     }
@@ -105,12 +105,12 @@ bool SerialPort::writeSerialPort(const char *buffer, unsigned int buf_size)
 {
     DWORD bytesSend;
 
-    if (!WriteFile(this->handler, (void*) buffer, buf_size, &bytesSend, 0))
+    if (!WriteFile(this->handler, (void *)buffer, buf_size, &bytesSend, 0))
     {
         ClearCommError(this->handler, &this->errors, &this->status);
         return false;
     }
-    
+
     return true;
 }
 
