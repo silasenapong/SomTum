@@ -1,9 +1,11 @@
 #include <Arduino.h>
-#include "DHTZ.h"
+#include "DHTZ.hpp"
+// #include "MQ135.hpp"
 
-#define DelayMs 1000
+#define DelayMs 5000
 
 DHTZ DHTSensor;
+// MQ135 MQ;
 
 void setup()
 {
