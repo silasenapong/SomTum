@@ -10,7 +10,7 @@ DHTZ DHTSensor;
 void setup()
 {
     Serial.begin(9600);
-    Serial.println("Temp|Humi");
+    // Serial.println("Date|Time|AirQ|Temp|Humi");
 
     DHTSensor.DHTZInit();
 }
