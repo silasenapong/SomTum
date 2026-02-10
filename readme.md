@@ -13,23 +13,23 @@
 # Main todo list
 
 Data input - API/Sensors/File reader => clean data ready for analysis
-[x] |-> Read data from file .txt .xlsx .cvs
-[x] |-> Read data from Arduino sensor DHT22(temp,humi) MQ135(AQI,PPM) Dust sensor(PM2.5)
-[] |-> Clean data from sensor and file
-[] |-> Put data in one file ready to send to Data analysis
+[x] Read data from file .txt .xlsx .cvs
+[x] Read data from Arduino sensor DHT22(temp,humi) MQ135(AQI,PPM) Dust sensor(PM2.5)
+[] Clean data from sensor and file
+[] Put data in one file ready to send to Data analysis
 
 Data analysis - Stat/Trend/AQI logic => Algorithm, Validated Data
-[] |-> Recive data from Data input
-[] |-> Analysis data with algorithm
-[] |-> Send analysis data to Backend
+[] Recive data from Data input
+[] Analysis data with algorithm
+[] Send analysis data to Backend
 
 Backend - Database/Integration/Notification => Core application logic
-[] |-> Recive data from Data analysis and save to data base
-[] |-> make notification
-[] |-> Backend stuff
+[] Recive data from Data analysis and save to data base
+[] make notification
+[] Backend stuff
 
 Frontend - Graph/Dashboard/UI => User interface for user
-[] |-> UX/UI design
-[] |-> Qt lib
-[] |-> Connect to data base (Real time is possible)
-[] |-> Show graph D/W/M/Y
+[] UX/UI design
+[] Qt lib
+[] Connect to data base (Real time is possible)
+[] Show graph D/W/M/Y
