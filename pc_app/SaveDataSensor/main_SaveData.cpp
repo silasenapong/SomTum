@@ -26,7 +26,11 @@ std::string getDateString()
 
 int main()
 {
-    std::string folderPath = "Y:\\file\\CMU\\year_2\\SomTum\\SomTum\\data\\";
+    // laptop
+    std::string folderPath = "Z:\\File\\code\\SomTum\\data\\";
+
+    // pc
+    // std::string folderPath = "Y:\\file\\CMU\\year_2\\SomTum\\SomTum\\data\\";
     std::string currentDay = "";
     std::ofstream write;
 
@@ -97,7 +101,7 @@ int main()
 
 /*
     compile code
-    g++ SerialPort.cpp main_pc.cpp -o Tracker.exe
+    g++ SerialPort.cpp main_SaveData.cpp -o Tracker.exe
 
     run command
     ./Tracker.exe
