@@ -10,5 +10,7 @@ int main()
     // pc
     // std::string folderPath = "Y:\\file\\CMU\\year_2\\SomTum\\SomTum\\data\\";
 
+    std::cout << "Hello";
+
     return 0;
 }
