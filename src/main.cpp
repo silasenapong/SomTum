@@ -14,7 +14,7 @@ MQ135 MQ(A0);
 void setup()
 {
     Serial.begin(9600);
-    // Serial.println("Date|Time|AirQ|Temp|Humi");
+    // Serial.println("Date|Time|Temp|Humi|AirQ|PM2.5");
 
     DHTSensor.DHTZInit();
 }
