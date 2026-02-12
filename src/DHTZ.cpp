@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include <DHTZ.h>
+#include <DHTZ.hpp>
 
 float t, h;
 
