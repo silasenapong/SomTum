@@ -22,23 +22,23 @@ int main() {
 
     while (getline(file, line)) {
 
-        int pos;
+        int po;
 
-        pos = line.find(",");
-        date[count] = line.substr(0, pos);
-        line.erase(0, pos + 1);
+        po = line.find(",");
+        date[count] = line.substr(0, po);
+        line.erase(0, po + 1);
 
-        pos = line.find(",");
-        timeData[count] = line.substr(0, pos);
-        line.erase(0, pos + 1);
+        po = line.find(",");
+        timeData[count] = line.substr(0, po);
+        line.erase(0, po + 1);
 
-        pos = line.find(",");
-        temperature[count] = stod(line.substr(0, pos));
-        line.erase(0, pos + 1);
+        po = line.find(",");
+        temperature[count] = stod(line.substr(0, po));
+        line.erase(0, po + 1);
 
-        pos = line.find(",");
-        humidity[count] = stod(line.substr(0, pos));
-        line.erase(0, pos + 1);
+        po = line.find(",");
+        humidity[count] = stod(line.substr(0, po));
+        line.erase(0, po + 1);
 
         pm25[count] = stod(line);
 
