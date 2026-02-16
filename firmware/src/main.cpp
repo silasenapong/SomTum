@@ -6,7 +6,8 @@
 #include "DHTZ.hpp"
 #include "MQ135.hpp"
 
-#define DelayMs 5000
+#define DelayMs 300000 // 5 min
+// #define DelayMs 5000 // 5 sec
 
 DHTZ DHTSensor;
 MQ135 MQ(A0);
