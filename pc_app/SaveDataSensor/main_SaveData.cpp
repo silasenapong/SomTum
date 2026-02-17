@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <sstream>
 #include <string>
+#include <filesystem>
 #include "SerialPort.hpp"
 
 std::string getDateString()
@@ -26,11 +27,11 @@ std::string getDateString()
 
 int main()
 {
-    // laptop
-    // std::string folderPath = "Z:\\File\\code\\SomTum\\data\\";
 
-    // pc
-    std::string folderPath = "Y:\\file\\CMU\\year_2\\SomTum\\SomTum\\data\\";
+    std::string folderPath = (std::filesystem::current_path() / "data" / "").generic_string();
+    // std::string folderPath = "Y:\\file\\CMU\\year_2\\SomTum\\SomTum\\data\\";
+    // std::cout << folderPath << std::endl;
+
     std::string currentDay = "";
     std::ofstream write;
 
