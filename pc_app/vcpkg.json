@@ -1,0 +1,5 @@
+{
+  "name": "air-q-detect",
+  "version-string": "1.0.0",
+  "dependencies": ["curl", "nlohmann-json", "openxlsx"]
+}
