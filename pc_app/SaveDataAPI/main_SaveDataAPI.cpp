@@ -55,12 +55,21 @@ std::string CurrTime()
     int min = localTime->tm_min;
     int sec = localTime->tm_sec;
 
-    // std::cout << year << "/" << month << "/" << monthDay << ","
-    // << hour << ":" << min << ":" << sec << std::endl;
+    std::ostringstream oss;
 
-    return std::to_string(year) + "/" + std::to_string(month) + "/" +
-           std::to_string(monthDay) + "," + std::to_string(hour) + ":" +
-           std::to_string(min) + ":" + std::to_string(sec);
+    // Year/Month/Day
+    oss << year << "/"
+        << std::setfill('0') << std::setw(2) << month << "/"
+        << std::setfill('0') << std::setw(2) << monthDay << ",";
+
+    // Hour:Min:Sec
+    oss << std::setfill('0') << std::setw(2) << hour << ":"
+        << std::setfill('0') << std::setw(2) << min << ":"
+        << std::setfill('0') << std::setw(2) << sec;
+
+    std::string DateTime = oss.str();
+
+    return DateTime;
 }
 
 std::string getEnvVar(std::string key)

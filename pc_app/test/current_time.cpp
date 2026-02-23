@@ -1,5 +1,7 @@
 #include <iostream>
 #include <ctime>
+#include <iomanip>
+#include <sstream>
 
 int main()
 {
@@ -32,10 +34,21 @@ int main()
     int sec = localTime->tm_sec;
     // std::cout << sec << std::endl;
 
-    std::cout << hour << ":" << min << ":" << sec << std::endl;
+    std::ostringstream oss;
 
-    std::cout << year << "/" << month << "/" << monthDay << ","
-              << hour << ":" << min << ":" << sec << std::endl;
+    // Year/Month/Day
+    oss << year << "/"
+        << std::setfill('0') << std::setw(2) << month << "/"
+        << std::setfill('0') << std::setw(2) << monthDay << ",";
+
+    // Hour:Min:Sec
+    oss << std::setfill('0') << std::setw(2) << hour << ":"
+        << std::setfill('0') << std::setw(2) << min << ":"
+        << std::setfill('0') << std::setw(2) << sec;
+
+    std::string fullDateTime = oss.str();
+
+    std::cout << fullDateTime << std::endl;
 
     return 0;
 }
