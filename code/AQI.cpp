@@ -32,11 +32,6 @@ int main() {
 
     ifstream file("../data/data.txt");
 
-    if (!file) {
-        cout << "File not found!" << endl;
-        return 0;
-    }
-
     string line;
     int count = 0;
 
