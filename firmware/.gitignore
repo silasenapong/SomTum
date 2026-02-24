@@ -3,8 +3,3 @@
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/ipch
-*.exe
-.vscode/
-*.env
-vcpkg/
-node_modules/
