@@ -60,7 +60,7 @@ int main() {
 
         count++;
     }
-
+    
     cout << "Total Data = " << count << endl;
 
     file.close();

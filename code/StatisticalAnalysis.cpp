@@ -64,7 +64,7 @@ int main() {
         if (pm25[i] < minVal)
             minVal = pm25[i];
     }
-
+    
     cout << "Total Data = " << count << endl;
     cout << "Mean PM2.5 = " << mean << endl;
     cout << "Max PM2.5 = " << maxVal << endl;

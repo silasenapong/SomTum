@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cmath>
 using namespace std;
 
 int main() {
@@ -44,34 +45,42 @@ int main() {
 
     file.close();
 
-    double firstHalfSum = 0;
-    double secondHalfSum = 0;
+    double sum = 0;
 
-    int half = count / 2;
-
-    for (int i = 0; i < half; i++) {
-        firstHalfSum += pm25[i];
+    for (int i = 0; i < count; i++) {
+        sum += pm25[i];
     }
 
-    for (int i = half; i < count; i++) {
-        secondHalfSum += pm25[i];
+    double mean = sum / count;
+
+    double varianceSum = 0;
+
+    for (int i = 0; i < count; i++) {
+        varianceSum += pow(pm25[i] - mean, 2);
     }
 
-    double firstAvg = firstHalfSum / half;
-    double secondAvg = secondHalfSum / (count - half);
+    double variance = varianceSum / count;
 
-    cout << "Total Data = " << count << endl;
-    cout << "First Half Average = " << firstAvg << endl;
-    cout << "Second Half Average = " << secondAvg << endl;
+    double stdDev = sqrt(variance);
 
-    if (secondAvg > firstAvg) {
-        cout << "Trend: PM2.5 is Increasing" << endl;
-    }
-    else if (secondAvg < firstAvg) {
-        cout << "Trend: PM2.5 is Decreasing" << endl;
-    }
-    else {
-        cout << "Trend: PM2.5 is Stable" << endl;
+    double threshold = mean + (2 * stdDev);
+
+    cout << "Mean = " << mean << endl;
+    cout << "Standard Deviation = " << stdDev << endl;
+    cout << "Anomaly Threshold = " << threshold << endl;
+    cout << endl;
+
+    cout << "Anomaly Data:" << endl;
+
+    for (int i = 0; i < count; i++) {
+
+        if (pm25[i] > threshold) {
+            cout << date[i] << " "
+                 << timeData[i]
+                 << " PM2.5 = "
+                 << pm25[i]
+                 << " (Anomaly)" << endl;
+        }
     }
     return 0;
 }
