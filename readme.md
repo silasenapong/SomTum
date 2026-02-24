@@ -16,8 +16,8 @@ Data input - API/Sensors/File reader => clean data ready for analysis
 
 - [x] Read data from file .txt .xlsx .cvs
 - [x] Read data from Arduino sensor DHT22(temp,humi) MQ135(AQI,PPM) Dust sensor(PM2.5)
-- [] Clean data from sensor and file
-- [] Put data in one file ready to send to Data analysis
+- [x] Clean data from sensor and file
+- [x] Put data in one file ready to send to Data analysis
 
 Data analysis - Stat/Trend/AQI logic => Algorithm, Validated Data
 
