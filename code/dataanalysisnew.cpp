@@ -319,6 +319,7 @@ int main() {
     }
     ofstream out("output.txt");
     //OUTPUT
+    out << "@ DAILY"<<endl;
     out << today << " ";//วันที่วันนี้
     out << nowHour << " ";//เวลาตอนนี้
     out << currentPM << " ";//ค่า pm2.5 ตอนนี้
