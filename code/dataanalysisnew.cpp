@@ -320,38 +320,44 @@ int main() {
     ofstream out("output.txt");
     //OUTPUT
     out << "@ DAILY"<<endl;
-    out << today << " ";//วันที่วันนี้
-    out << nowHour << " ";//เวลาตอนนี้
-    out << currentPM << " ";//ค่า pm2.5 ตอนนี้
-    out << maxToday << " ";//ค่าสูงสุดวันนี้
-    out << minToday << " ";//ค่าต่ำสุดวันนี้
-    out << timeMax << " ";//เวลาที่เกิดค่าสูงสุด
+    out << "daily_date = " << today << " " << endl;//วันที่วันนี้
+    out << "daily_time = " << nowHour << " " << endl;//เวลาตอนนี้
+    out << "daily_pm = " << currentPM << " " << endl;//ค่า pm2.5 ตอนนี้
+    out << "daily_max = " << maxToday << " " << endl;//ค่าสูงสุดวันนี้
+    out << "daily_min = " << minToday << " " << endl;//ค่าต่ำสุดวันนี้
+    out << "daily_max_time = " << timeMax << " " << endl;//เวลาที่เกิดค่าสูงสุด
+    out << "daily_hourly = ";
     for (int i = 0; i < 24; i++) {
-    out << pmDay[i]<< " ";
+    out << pmDay[i]<< " " << endl;
     }
-    out << avgWeek << " ";//ค่าเฉลี่ย PM2.5 ทั้งสัปดาห์
-    out << maxWeekDate << " ";//วันที่มีค่าสูงสุดในสัปดาห์
-    out << maxWeek << " ";//ค่าของวันที่ค่าสูงสุด
-    out << minWeekDate << " ";//วันที่ค่าต่ำสุดในสัปดาห์
-    out << minWeek << " ";//ค่าของวันที่ค่าต่ำสุด
+    out << "@ WEEKLY" << endl;
+    out << "weekly_avg = " << avgWeek << " " << endl;//ค่าเฉลี่ย PM2.5 ทั้งสัปดาห์
+    out << "weekly_max_date = " << maxWeekDate << " " << endl;//วันที่มีค่าสูงสุดในสัปดาห์
+    out << "weekly_max = " << maxWeek << " " << endl;//ค่าของวันที่ค่าสูงสุด
+    out << "weekly_min_date = " << minWeekDate << " " << endl;//วันที่ค่าต่ำสุดในสัปดาห์
+    out << "weekly_min = " << minWeek << " " << endl;//ค่าของวันที่ค่าต่ำสุด
+    out << "weekly_past = ";
     out << getAverage(day1, date, pm25, count) << " ";//ค่าเฉลี่ยเมื่่อวาน
     out << getAverage(day2, date, pm25, count) << " ";//ค่าเฉลี่ย2วันก่อน
     out << getAverage(day3, date, pm25, count) << " ";//ค่าเฉลี่ย3วันก่อน
     out << getAverage(day4, date, pm25, count) << " ";//ค่าเฉลี่ย4วันก่อน
     out << getAverage(day5, date, pm25, count) << " ";//ค่าเฉลี่ย5วันก่อน
-    out << getAverage(day6, date, pm25, count) << " ";//ค่าเฉลี่ย6วันก่อน
-    out << day1 << " ";//วันที่เมื่อวาน
+    out << getAverage(day6, date, pm25, count) << " " << endl;//ค่าเฉลี่ย6วันก่อน
+    out << "weekly_date = ";//วันที่เมื่อวาน
+    out << day1 << " ";//วันที่1วันก่อน
     out << day2 << " ";//วันที่2วันก่อน
     out << day3 << " ";//วันที่3วันก่อน
     out << day4 << " ";//วันที่4วันก่อน
     out << day5 << " ";//วันที่5วันก่อน
-    out << day6 << " ";//วันที่6วันก่อน
-    out << avgMonth << " ";//ค่าเฉลี่ยทั้งเดือน
-    out << maxMonthDate << " ";//วันที่ค่าสูงสุดในเดือน
-    out << maxMonth << " ";//ค่าของวันที่ค่าสูงสุด
-    out << minMonthDate << " ";//วันที่ค่าต่ำสุดในเดือน
-    out << minMonth << " ";//ค่าของวันที่ค่าต่ำสุด
-    out << avgYear << " ";//ค่าเฉลี่ยทั้งปี
+    out << day6 << " " << endl;//วันที่6วันก่อน
+    out << "@ MONTHLY" << endl;
+    out << "monthly_avg = " << avgMonth << " " << endl;//ค่าเฉลี่ยทั้งเดือน
+    out << "monthly_max_date = " << maxMonthDate << " " << endl;//วันที่ค่าสูงสุดในเดือน
+    out << "monthly_max = " << maxMonth << " " << endl;//ค่าของวันที่ค่าสูงสุด
+    out << "monthly_min_date = " << minMonthDate << " " << endl;//วันที่ค่าต่ำสุดในเดือน
+    out << "monthly_min = " << minMonth << " " << endl;//ค่าของวันที่ค่าต่ำสุด
+    out << "@ YEARLY" << endl;
+    out << "yearly_avg = " << avgYear << " " << endl;//ค่าเฉลี่ยทั้งปี
     out << (maxMonthIndex + 1) << " ";//เดือนที่มีค่าสูงสุด
     out << maxMonthAvg << " ";//ค่าของเดือนที่ค่าสูงสุด
     out << (minMonthIndex + 1) << " ";//เดือนที่มีค่าต่ำสุด
