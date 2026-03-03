@@ -189,25 +189,29 @@ int main() {
 
     double avgYear = yearCount > 0 ? yearSum / yearCount : 0;
 
+    ofstream out("output.txt");
+
     //OUTPUT
 
-    cout << today << " ";//วันที่วันนี้
-    cout << nowHour << " ";//เวลาตอนนี้
-    cout << currentPM << " ";//ค่า pm2.5 ตอนนี้
-    cout << maxToday << " ";//ค่าสูงสุดวันนี้
-    cout << minToday << " ";//ค่าต่ำสุดวันนี้
-    cout << timeMax << " ";//เวลาที่เกิดค่าสูงสุด
-    cout << avgWeek << " ";//ค่าเฉลี่ย PM2.5 ทั้งสัปดาห์
-    cout << maxWeekDate << " ";//วันที่มีค่าสูงสุดในสัปดาห์
-    cout << maxWeek << " ";//ค่าของวันที่ค่าสูงสุด
-    cout << minWeekDate << " ";//วันที่ค่าต่ำสุดในสัปดาห์
-    cout << minWeek << " ";//ค่าของวันที่ค่าต ่าสุด
-    cout << avgMonth << " ";//ค่าเฉลี่ยทั้งเดือน
-    cout << maxMonthDate << " ";//วันที่ค่าสูงสุดในเดือน
-    cout << maxMonth << " ";//ค่าของวันที่ค่าสูงสุด
-    cout << minMonthDate << " ";//วันที่ค่าต่ำสุดในเดือน
-    cout << minMonth << " ";//ค่าของวันที่ค่าต่ำสุด
-    cout << avgYear;//ค่าเฉลี่ยทั้งปี
+    out << today << " ";//วันที่วันนี้
+    out << nowHour << " ";//เวลาตอนนี้
+    out << currentPM << " ";//ค่า pm2.5 ตอนนี้
+    out << maxToday << " ";//ค่าสูงสุดวันนี้
+    out << minToday << " ";//ค่าต่ำสุดวันนี้
+    out << timeMax << " ";//เวลาที่เกิดค่าสูงสุด
+    out << avgWeek << " ";//ค่าเฉลี่ย PM2.5 ทั้งสัปดาห์
+    out << maxWeekDate << " ";//วันที่มีค่าสูงสุดในสัปดาห์
+    out << maxWeek << " ";//ค่าของวันที่ค่าสูงสุด
+    out << minWeekDate << " ";//วันที่ค่าต่ำสุดในสัปดาห์
+    out << minWeek << " ";//ค่าของวันที่ค่าต ่าสุด
+    out << avgMonth << " ";//ค่าเฉลี่ยทั้งเดือน
+    out << maxMonthDate << " ";//วันที่ค่าสูงสุดในเดือน
+    out << maxMonth << " ";//ค่าของวันที่ค่าสูงสุด
+    out << minMonthDate << " ";//วันที่ค่าต่ำสุดในเดือน
+    out << minMonth << " ";//ค่าของวันที่ค่าต่ำสุด
+    out << avgYear;//ค่าเฉลี่ยทั้งปี
+
+    out.close();
 
     return 0;
 }
