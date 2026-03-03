@@ -216,28 +216,93 @@ int main() {
     }
 
     double avgYear = yearCount > 0 ? yearSum / yearCount : 0;
-    //MONTHLY STAT (ทั้งปี)
+    // ===== YEAR MAX / MIN ONLY =====
 
+    double yearSumAll[10] = {0};
+    int yearCountAll[10] = {0};
+    double yearAvgAll[10] = {0};
+
+    int baseYear = 2021;
+
+    // รวมค่าแต่ละปี
+    for (int i = 0; i < count; i++) {
+
+    int y = stoi(date[i].substr(0, 4));
+    int index = y - baseYear;
+
+    if (index >= 0 && index < 10) {
+        yearSumAll[index] += pm25[i];
+        yearCountAll[index]++;
+    }
+    }
+
+    // คำนวณค่าเฉลี่ยแต่ละปี
+    for (int i = 0; i < 10; i++) {
+        if (yearCountAll[i] > 0)
+            yearAvgAll[i] = yearSumAll[i] / yearCountAll[i];
+    }
+
+    // หา year max / min
+    double maxYearAvg = -1;
+    double minYearAvg = 9999;
+    int maxYearIndex = -1;
+    int minYearIndex = -1;
+
+    for (int i = 0; i < 10; i++) {
+
+        if (yearAvgAll[i] > maxYearAvg) {
+            maxYearAvg = yearAvgAll[i];
+            maxYearIndex = i;
+        }
+
+        if (yearAvgAll[i] > 0 && yearAvgAll[i] < minYearAvg) {
+            minYearAvg = yearAvgAll[i];
+            minYearIndex = i;
+        }
+    }
+    //MONTHLY STAT
     double monthSumAll[12] = {0};
     int monthCountAll[12] = {0};
     double monthAvg[12] = {0};
 
-    //เก็บข้อมูลแต่ละเดือน
+    string monthMaxDate[12];
+    string monthMinDate[12];
+    double monthMaxValue[12];
+    double monthMinValue[12];
+
+    // initialize
+    for (int i = 0; i < 12; i++) {
+        monthMaxValue[i] = -1;
+        monthMinValue[i] = 9999;
+    }
+
+    // รวมข้อมูล
     for (int i = 0; i < count; i++) {
 
-    int month = stoi(date[i].substr(5, 2)); //เลขเดือน
-    monthSumAll[month - 1] += pm25[i];
-    monthCountAll[month - 1]++;
+        int month = stoi(date[i].substr(5, 2));
+        int index = month - 1;
+
+        monthSumAll[index] += pm25[i];
+        monthCountAll[index]++;
+
+    // หา max ของเดือนนั้น
+    if (pm25[i] > monthMaxValue[index]) {
+        monthMaxValue[index] = pm25[i];
+        monthMaxDate[index] = date[i];
     }
 
-    //คำนวณค่าเฉลี่ยแต่ละเดือน
+    // หา min ของเดือนนั้น
+    if (pm25[i] < monthMinValue[index]) {
+        monthMinValue[index] = pm25[i];
+        monthMinDate[index] = date[i];
+    }
+}
+
+    // คำนวณ avg
     for (int i = 0; i < 12; i++) {
-    if (monthCountAll[i] > 0)
-        monthAvg[i] = monthSumAll[i] / monthCountAll[i];
-    else
-        monthAvg[i] = 0;
+        if (monthCountAll[i] > 0)
+            monthAvg[i] = monthSumAll[i] / monthCountAll[i];
     }
-
     //หาค่าสูงสุด ต่ำสุด และจำนวนเดือนที่มีค่า Pm เกิน 37.50
     double maxMonthAvg = -1;
     double minMonthAvg = 9999;
@@ -328,8 +393,9 @@ int main() {
     out << "daily_max_time = " << timeMax << " " << endl;//เวลาที่เกิดค่าสูงสุด
     out << "daily_hourly = ";
     for (int i = 0; i < 24; i++) {
-    out << pmDay[i]<< " " << endl;
+    out << pmDay[i]<< " " ;
     }
+    out << endl;
     out << "@ WEEKLY" << endl;
     out << "weekly_avg = " << avgWeek << " " << endl;//ค่าเฉลี่ย PM2.5 ทั้งสัปดาห์
     out << "weekly_max_date = " << maxWeekDate << " " << endl;//วันที่มีค่าสูงสุดในสัปดาห์
@@ -357,15 +423,19 @@ int main() {
     out << "monthly_min_date = " << minMonthDate << " " << endl;//วันที่ค่าต่ำสุดในเดือน
     out << "monthly_min = " << minMonth << " " << endl;//ค่าของวันที่ค่าต่ำสุด
     out << "@ YEARLY" << endl;
-    out << "yearly_avg = " << avgYear << " " << endl;//ค่าเฉลี่ยทั้งปี
-    out << (maxMonthIndex + 1) << " ";//เดือนที่มีค่าสูงสุด
-    out << maxMonthAvg << " ";//ค่าของเดือนที่ค่าสูงสุด
-    out << (minMonthIndex + 1) << " ";//เดือนที่มีค่าต่ำสุด
-    out << minMonthAvg << " ";//ค่าของเดือนที่ค่าต่ำสุด
-    out << over3750Count << " ";// จำนวนเดือนที่เกิน 37.50
+    out << "yearly_avg = ";
+    out << avgYear << " " << endl;//ค่าเฉลี่ยทั้งปี
+    out << monthMaxDate[maxMonthIndex] << endl;//เดือนที่มีค่าสูงสุด
+    out << maxMonthAvg << " " << endl;//ค่าของเดือนที่ค่าสูงสุด
+    out << (baseYear + maxYearIndex) << endl;//ปีที่มีค่าสูงสุด
+    out << monthMinDate[minMonthIndex] << endl;//เดือนที่มีค่าต่ำสุด
+    out << minMonthAvg << " " << endl;//ค่าของเดือนที่ค่าต่ำสุด
+    out << (baseYear + minYearIndex) << endl;//ปีที่่มีค่าต่ำสุด
     for (int i = 0; i < 12; i++) {
-    out << monthAvg[i] << " ";// ค่าเฉลี่ยแต่ละเดือน
+    out << monthAvg[i] << " " ;// ค่าเฉลี่ยแต่ละเดือน
     }
+    out << endl;
+    out << over3750Count << " " << endl;// จำนวนเดือนที่เกิน 37.50
     out.close();
 
     return 0;

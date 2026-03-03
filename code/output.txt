@@ -5,30 +5,7 @@ daily_pm = 119.42
 daily_max = 218.83 
 daily_min = 63.92 
 daily_max_time = 16:00:00 
-daily_hourly = daily_hourly = 84.32 
-daily_hourly = 79.83 
-daily_hourly = 75.45 
-daily_hourly = 75.66 
-daily_hourly = 75.98 
-daily_hourly = 75.62 
-daily_hourly = 76.21 
-daily_hourly = 83.34 
-daily_hourly = 93.46 
-daily_hourly = 100.16 
-daily_hourly = 99.36 
-daily_hourly = 63.92 
-daily_hourly = 89.53 
-daily_hourly = 136.52 
-daily_hourly = 185.15 
-daily_hourly = 213.88 
-daily_hourly = 218.83 
-daily_hourly = 214.16 
-daily_hourly = 206.66 
-daily_hourly = 179.92 
-daily_hourly = 136.89 
-daily_hourly = 116.83 
-daily_hourly = 119.42 
-daily_hourly = 0 
+daily_hourly = 84.32 79.83 75.45 75.66 75.98 75.62 76.21 83.34 93.46 100.16 99.36 63.92 89.53 136.52 185.15 213.88 218.83 214.16 206.66 179.92 136.89 116.83 119.42 0 
 @ WEEKLY
 weekly_avg = 67.2085 
 weekly_max_date = 2022/02/24 
@@ -45,4 +22,11 @@ monthly_min_date = 2022/02/21
 monthly_min = 7.42 
 @ YEARLY
 yearly_avg = 88.5584 
-11 97.1739 6 25.8954 9 93.2253 76.7047 77.4908 50.287 33.4969 25.8954 32.3476 44.7485 59.7002 72.273 97.1739 94.9412 
+2021/11/16
+97.1739 
+2022
+2021/06/27
+25.8954 
+2021
+93.2253 76.7047 77.4908 50.287 33.4969 25.8954 32.3476 44.7485 59.7002 72.273 97.1739 94.9412 
+9 
