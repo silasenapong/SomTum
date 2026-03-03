@@ -130,7 +130,7 @@ void fetchData()
         auto j_a = json::parse(res_a->body);
 
         // terminal output
-        std::cout << "\n--- Chiang Mai Weather Update ---" << std::endl;
+        std::cout << "\n---------------------------------" << std::endl;
         std::cout << "Temp     : " << std::fixed << std::setprecision(1) << j_w["main"]["temp"] << " C" << std::endl;
         std::cout << "Humidity : " << j_w["main"]["humidity"] << " %" << std::endl;
         std::cout << "PM 2.5   : " << j_a["list"][0]["components"]["pm2_5"] << " ug/m3" << std::endl;
