@@ -396,6 +396,7 @@ int main() {
     out << pmDay[i]<< " " ;
     }
     out << endl;
+    out << "\n";
     out << "@ WEEKLY" << endl;
     out << "weekly_avg = " << avgWeek << " " << endl;//ค่าเฉลี่ย PM2.5 ทั้งสัปดาห์
     out << "weekly_max_date = " << maxWeekDate << " " << endl;//วันที่มีค่าสูงสุดในสัปดาห์
@@ -416,21 +417,24 @@ int main() {
     out << day4 << " ";//วันที่4วันก่อน
     out << day5 << " ";//วันที่5วันก่อน
     out << day6 << " " << endl;//วันที่6วันก่อน
+    out << "\n";
     out << "@ MONTHLY" << endl;
     out << "monthly_avg = " << avgMonth << " " << endl;//ค่าเฉลี่ยทั้งเดือน
     out << "monthly_max_date = " << maxMonthDate << " " << endl;//วันที่ค่าสูงสุดในเดือน
     out << "monthly_max = " << maxMonth << " " << endl;//ค่าของวันที่ค่าสูงสุด
     out << "monthly_min_date = " << minMonthDate << " " << endl;//วันที่ค่าต่ำสุดในเดือน
     out << "monthly_min = " << minMonth << " " << endl;//ค่าของวันที่ค่าต่ำสุด
+    out << "\n";
     out << "@ YEARLY" << endl;
     out << "yearly_avg = ";
     out << avgYear << " " << endl;//ค่าเฉลี่ยทั้งปี
-    out << monthMaxDate[maxMonthIndex] << endl;//เดือนที่มีค่าสูงสุด
-    out << maxMonthAvg << " " << endl;//ค่าของเดือนที่ค่าสูงสุด
-    out << "yearly_max = " << (baseYear + maxYearIndex) << endl;//ปีที่มีค่าสูงสุด
-    out << monthMinDate[minMonthIndex] << endl;//เดือนที่มีค่าต่ำสุด
-    out << minMonthAvg << " " << endl;//ค่าของเดือนที่ค่าต่ำสุด
-    out << "yearly_min = " << (baseYear + minYearIndex) << endl;//ปีที่่มีค่าต่ำสุด
+    out << "yearly_max_month = " << monthMaxDate[maxMonthIndex] << endl;//เดือนที่มีค่าสูงสุด
+    out << "yearly_max = " << maxMonthAvg << " " << endl;//ค่าของเดือนที่ค่าสูงสุด
+    out << (baseYear + maxYearIndex) << endl;//ปีที่มีค่าสูงสุด
+    out << "yearly_min_month = " << monthMinDate[minMonthIndex] << endl;//เดือนที่มีค่าต่ำสุด
+    out << "yearly min = " << minMonthAvg << " " << endl;//ค่าของเดือนที่ค่าต่ำสุด
+    out << (baseYear + minYearIndex) << endl;//ปีที่่มีค่าต่ำสุด
+    out << "yearly_monthAvg = ";
     for (int i = 0; i < 12; i++) {
     out << monthAvg[i] << " " ;// ค่าเฉลี่ยแต่ละเดือน
     }
