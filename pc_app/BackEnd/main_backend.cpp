@@ -1,43 +1,45 @@
+#define _WIN32_WINNT 0x0A00
 #include <iostream>
-#include "firebase/app.h"
-#include "firebase/firestore.h"
+#include <string>
+#include "../httplib.h"
+#include "../json.hpp"
 
-using firebase::App;
-using firebase::AppOptions;
-using firebase::firestore::DocumentReference;
-using firebase::firestore::FieldValue;
-using firebase::firestore::Firestore;
+using json = nlohmann::json;
 
 int main()
 {
-    AppOptions options;
-    options.set_project_id("your-project-id");
-    options.set_api_key("your-api-key");
-    options.set_app_id("your-app-id");
+    std::string host = "icwahfhaszpsfgbrveyp.supabase.co";
+    std::string anon_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imljd2FoZmhhc3pwc2ZnYnJ2ZXlwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI1MTczMTUsImV4cCI6MjA4ODA5MzMxNX0.l3InWbi3kkc0z8LnbsJsGuFlSareUCbAC_jJPxhuf3Q";
 
-    App *app = App::Create(options);
-    Firestore *db = Firestore::GetInstance(app);
+    httplib::Client cli("https://" + host);
 
-    if (db != nullptr)
+    httplib::Headers headers = {
+        {"apikey", anon_key},
+        {"Authorization", "Bearer " + anon_key},
+        {"Content-Type", "application/json"}};
+
+    json newUser = {
+        {"username", "cpp_user"},
+        {"email", "user@example.com"}};
+
+    auto res_post = cli.Post("/rest/v1/users", headers, newUser.dump(), "application/json");
+
+    if (res_post && res_post->status == 201)
     {
-        std::cout << "Connected to Firebase!" << std::endl;
-
-        DocumentReference doc_ref = db->Collection("test_menu").Document("item_01");
-
-        doc_ref.Set({{"name", FieldValue::String("Som Tum Thai")},
-                     {"status", FieldValue::String("Testing Connection")}})
-            .OnCompletion([](const firebase::Future<void> &future)
-                          {
-            if (future.error() == firebase::firestore::Error::kErrorOk) {
-                std::cout << "Write Success: Data is now in Firebase!" << std::endl;
-            } else {
-                std::cout << "Write Failed: " << future.error_message() << std::endl;
-            } });
+        std::cout << "Insert successful" << std::endl;
     }
 
-    std::cout << "Wait for result... (Press Enter to exit)" << std::endl;
-    std::cin.get();
+    auto res_get = cli.Get("/rest/v1/users?select=*", headers);
 
-    delete app;
+    if (res_get && res_get->status == 200)
+    {
+        json data = json::parse(res_get->body);
+        std::cout << "Data: " << data.dump(4) << std::endl;
+    }
+    else
+    {
+        std::cout << "Error: " << res_get.error() << std::endl;
+    }
+
     return 0;
 }
