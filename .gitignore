@@ -5,3 +5,7 @@
 .vscode/ipch
 *.exe
 .vscode/
+*.env
+vcpkg/
+node_modules/
+.DS_Store
