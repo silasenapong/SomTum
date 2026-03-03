@@ -385,10 +385,7 @@ int main() {
     ofstream out("output.txt");
     //OUTPUT
     out << "@ DAILY"<<endl;
-    string yyyy = today.substr(0,4);
-    string mm   = today.substr(5,2);
-    string dd   = today.substr(8,2);
-    out << "daily_date = " << dd << "/" << mm << "/" << yyyy << endl;//วันที่วันนี้
+    out << "daily_date = " << today << " " << endl;//วันที่วันนี้
     out << "daily_time = " << nowHour << " " << endl;//เวลาตอนนี้
     out << "daily_pm = " << currentPM << " " << endl;//ค่า pm2.5 ตอนนี้
     out << "daily_max = " << maxToday << " " << endl;//ค่าสูงสุดวันนี้
@@ -412,18 +409,13 @@ int main() {
     out << getAverage(day4, date, pm25, count) << " ";//ค่าเฉลี่ย4วันก่อน
     out << getAverage(day5, date, pm25, count) << " ";//ค่าเฉลี่ย5วันก่อน
     out << getAverage(day6, date, pm25, count) << " " << endl;//ค่าเฉลี่ย6วันก่อน
-    out << "weekly_date = ";
-    string days[6] = {day1, day2, day3, day4, day5, day6};
-    for (int i = 0; i < 6; i++) {
-        if (days[i].length() >= 10) {
-
-            string dd = days[i].substr(8, 2);
-            string mm = days[i].substr(5, 2);
-
-            out << dd << "/" << mm << " ";
-        }
-    }
-    out << endl;
+    out << "weekly_date = ";//วันที่เมื่อวาน
+    out << day1 << " ";//วันที่1วันก่อน
+    out << day2 << " ";//วันที่2วันก่อน
+    out << day3 << " ";//วันที่3วันก่อน
+    out << day4 << " ";//วันที่4วันก่อน
+    out << day5 << " ";//วันที่5วันก่อน
+    out << day6 << " " << endl;//วันที่6วันก่อน
     out << "@ MONTHLY" << endl;
     out << "monthly_avg = " << avgMonth << " " << endl;//ค่าเฉลี่ยทั้งเดือน
     out << "monthly_max_date = " << maxMonthDate << " " << endl;//วันที่ค่าสูงสุดในเดือน
@@ -435,15 +427,15 @@ int main() {
     out << avgYear << " " << endl;//ค่าเฉลี่ยทั้งปี
     out << monthMaxDate[maxMonthIndex] << endl;//เดือนที่มีค่าสูงสุด
     out << maxMonthAvg << " " << endl;//ค่าของเดือนที่ค่าสูงสุด
-    out << (baseYear + maxYearIndex) << endl;//ปีที่มีค่าสูงสุด
+    out << "yearly_max = " << (baseYear + maxYearIndex) << endl;//ปีที่มีค่าสูงสุด
     out << monthMinDate[minMonthIndex] << endl;//เดือนที่มีค่าต่ำสุด
     out << minMonthAvg << " " << endl;//ค่าของเดือนที่ค่าต่ำสุด
-    out << (baseYear + minYearIndex) << endl;//ปีที่่มีค่าต่ำสุด
+    out << "yearly_min = " << (baseYear + minYearIndex) << endl;//ปีที่่มีค่าต่ำสุด
     for (int i = 0; i < 12; i++) {
     out << monthAvg[i] << " " ;// ค่าเฉลี่ยแต่ละเดือน
     }
     out << endl;
-    out << over3750Count << " " << endl;// จำนวนเดือนที่เกิน 37.50
+    out << "yearly_dayCount = " << over3750Count << " " << endl;// จำนวนเดือนที่เกิน 37.50
     out.close();
 
     return 0;
