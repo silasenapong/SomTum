@@ -91,13 +91,10 @@ int main() {
     } catch (...) {
         continue;
     }
-
     count++;
 }
-
     file.close();
 }
-
     if (count == 0) {
         cout << "0";
         return 0;
@@ -280,22 +277,6 @@ int main() {
     }
     
     }
-
-    //OUTPUT
-    cout << today << " ";//วันที่วันนี้
-    cout << nowHour << " ";//เวลาตอนนี้
-    cout << currentPM << " ";//ค่า pm2.5 ตอนนี้
-    cout << maxToday << " ";//ค่าสูงสุดวันนี้
-    cout << minToday << " ";//ค่าต่ำสุดวันนี้
-    cout << timeMax << " ";//เวลาที่เกิดค่าสูงสุด
-    for (int i = 0; i < 24; i++) {
-    cout << pmDay[i]<< " ";
-    }
-    cout << avgWeek << " ";//ค่าเฉลี่ย PM2.5 ทั้งสัปดาห์
-    cout << maxWeekDate << " ";//วันที่มีค่าสูงสุดในสัปดาห์
-    cout << maxWeek << " ";//ค่าของวันที่ค่าสูงสุด
-    cout << minWeekDate << " ";//วันที่ค่าต่ำสุดในสัปดาห์
-    cout << minWeek << " ";//ค่าของวันที่ค่าต่ำสุด
     //หา 6 วันที่ย้อนหลัง
     string day1 = "";//เมื่่อวาน
     string day2 = "";//2วันก่อน
@@ -336,32 +317,49 @@ int main() {
             }
         }
     }
-    cout << getAverage(day1, date, pm25, count) << " ";//ค่าเฉลี่ยเมื่่อวาน
-    cout << getAverage(day2, date, pm25, count) << " ";//ค่าเฉลี่ย2วันก่อน
-    cout << getAverage(day3, date, pm25, count) << " ";//ค่าเฉลี่ย3วันก่อน
-    cout << getAverage(day4, date, pm25, count) << " ";//ค่าเฉลี่ย4วันก่อน
-    cout << getAverage(day5, date, pm25, count) << " ";//ค่าเฉลี่ย5วันก่อน
-    cout << getAverage(day6, date, pm25, count) << " ";//ค่าเฉลี่ย6วันก่อน
-    cout << day1 << " ";//วันที่เมื่อวาน
-    cout << day2 << " ";//วันที่2วันก่อน
-    cout << day3 << " ";//วันที่3วันก่อน
-    cout << day4 << " ";//วันที่4วันก่อน
-    cout << day5 << " ";//วันที่5วันก่อน
-    cout << day6 << " ";//วันที่6วันก่อน
-    cout << avgMonth << " ";//ค่าเฉลี่ยทั้งเดือน
-    cout << maxMonthDate << " ";//วันที่ค่าสูงสุดในเดือน
-    cout << maxMonth << " ";//ค่าของวันที่ค่าสูงสุด
-    cout << minMonthDate << " ";//วันที่ค่าต่ำสุดในเดือน
-    cout << minMonth << " ";//ค่าของวันที่ค่าต่ำสุด
-    cout << avgYear << " ";//ค่าเฉลี่ยทั้งปี
-    cout << (maxMonthIndex + 1) << " ";//เดือนที่มีค่าสูงสุด
-    cout << maxMonthAvg << " ";//ค่าของเดือนที่ค่าสูงสุด
-    cout << (minMonthIndex + 1) << " ";//เดือนที่มีค่าต่ำสุด
-    cout << minMonthAvg << " ";//ค่าของเดือนที่ค่าต่ำสุด
-    cout << over3750Count << " ";// จำนวนเดือนที่เกิน 37.50
-    for (int i = 0; i < 12; i++) {
-    cout << monthAvg[i] << " ";// ค่าเฉลี่ยแต่ละเดือน
+    ofstream out("output.txt");
+    //OUTPUT
+    out << today << " ";//วันที่วันนี้
+    out << nowHour << " ";//เวลาตอนนี้
+    out << currentPM << " ";//ค่า pm2.5 ตอนนี้
+    out << maxToday << " ";//ค่าสูงสุดวันนี้
+    out << minToday << " ";//ค่าต่ำสุดวันนี้
+    out << timeMax << " ";//เวลาที่เกิดค่าสูงสุด
+    for (int i = 0; i < 24; i++) {
+    out << pmDay[i]<< " ";
     }
+    out << avgWeek << " ";//ค่าเฉลี่ย PM2.5 ทั้งสัปดาห์
+    out << maxWeekDate << " ";//วันที่มีค่าสูงสุดในสัปดาห์
+    out << maxWeek << " ";//ค่าของวันที่ค่าสูงสุด
+    out << minWeekDate << " ";//วันที่ค่าต่ำสุดในสัปดาห์
+    out << minWeek << " ";//ค่าของวันที่ค่าต่ำสุด
+    out << getAverage(day1, date, pm25, count) << " ";//ค่าเฉลี่ยเมื่่อวาน
+    out << getAverage(day2, date, pm25, count) << " ";//ค่าเฉลี่ย2วันก่อน
+    out << getAverage(day3, date, pm25, count) << " ";//ค่าเฉลี่ย3วันก่อน
+    out << getAverage(day4, date, pm25, count) << " ";//ค่าเฉลี่ย4วันก่อน
+    out << getAverage(day5, date, pm25, count) << " ";//ค่าเฉลี่ย5วันก่อน
+    out << getAverage(day6, date, pm25, count) << " ";//ค่าเฉลี่ย6วันก่อน
+    out << day1 << " ";//วันที่เมื่อวาน
+    out << day2 << " ";//วันที่2วันก่อน
+    out << day3 << " ";//วันที่3วันก่อน
+    out << day4 << " ";//วันที่4วันก่อน
+    out << day5 << " ";//วันที่5วันก่อน
+    out << day6 << " ";//วันที่6วันก่อน
+    out << avgMonth << " ";//ค่าเฉลี่ยทั้งเดือน
+    out << maxMonthDate << " ";//วันที่ค่าสูงสุดในเดือน
+    out << maxMonth << " ";//ค่าของวันที่ค่าสูงสุด
+    out << minMonthDate << " ";//วันที่ค่าต่ำสุดในเดือน
+    out << minMonth << " ";//ค่าของวันที่ค่าต่ำสุด
+    out << avgYear << " ";//ค่าเฉลี่ยทั้งปี
+    out << (maxMonthIndex + 1) << " ";//เดือนที่มีค่าสูงสุด
+    out << maxMonthAvg << " ";//ค่าของเดือนที่ค่าสูงสุด
+    out << (minMonthIndex + 1) << " ";//เดือนที่มีค่าต่ำสุด
+    out << minMonthAvg << " ";//ค่าของเดือนที่ค่าต่ำสุด
+    out << over3750Count << " ";// จำนวนเดือนที่เกิน 37.50
+    for (int i = 0; i < 12; i++) {
+    out << monthAvg[i] << " ";// ค่าเฉลี่ยแต่ละเดือน
+    }
+    out.close();
 
     return 0;
 }//d
