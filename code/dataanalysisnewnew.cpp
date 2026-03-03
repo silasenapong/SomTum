@@ -21,9 +21,9 @@ int main() {
         "../data/data_2026_02_11.txt"
     };
 
-    string date[10000];
-    string timeData[10000];
-    double pm25[10000];
+    string date[10000];//วันที่
+    string timeData[10000];//เวลาณตอนนั้น
+    double pm25[10000];//ค่าpm2.5ณตอนนั้น
 
     int count = 0;
 
@@ -95,7 +95,6 @@ int main() {
             }
         }
     }
-
     //WEEKLY
     double weeklySum = 0;
     int weeklyCount = 0;
@@ -199,6 +198,24 @@ int main() {
     out << maxToday << " ";//ค่าสูงสุดวันนี้
     out << minToday << " ";//ค่าต่ำสุดวันนี้
     out << timeMax << " ";//เวลาที่เกิดค่าสูงสุด
+    //ค่า pm ตอนเที่ยงคืน - เที่ยงคืนอีกวัน
+    double pmDay[24];
+
+    for (int i = 0; i < 24; i++) {
+    pmDay[i] = 0;
+}
+
+    string today = date[count - 1];
+
+    for (int i = 0; i < count; i++) {
+
+    if (date[i] == today) {
+
+        int hour = stoi(timeData[i].substr(0, 2));
+
+        pmDay[hour] = pm25[i];
+    }
+}
     out << avgWeek << " ";//ค่าเฉลี่ย PM2.5 ทั้งสัปดาห์
     out << maxWeekDate << " ";//วันที่มีค่าสูงสุดในสัปดาห์
     out << maxWeek << " ";//ค่าของวันที่ค่าสูงสุด
