@@ -10,6 +10,12 @@ string formatDate(string ymd) {
     return d + "/" + m + "/" + y;
 }
 
+string formatDateNoYear(string ymd) {
+    string m = ymd.substr(5,2);
+    string d = ymd.substr(8,2);
+    return d + "/" + m;
+}
+
 string airLevel(double value) {
     if (value <= 25) return "Good";
     else if (value <= 50) return "Normal";
@@ -418,12 +424,12 @@ int main() {
     out << getAverage(day5, date, pm25, count) << " ";//ค่าเฉลี่ย5วันก่อน
     out << getAverage(day6, date, pm25, count) << " " << endl;//ค่าเฉลี่ย6วันก่อน
     out << "weekly_date = ";//วันที่เมื่อวาน
-    out << formatDate(day1) << " ";//วันที่1วันก่อน
-    out << formatDate(day2) << " ";//วันที่2วันก่อน
-    out << formatDate(day3) << " ";//วันที่3วันก่อน
-    out << formatDate(day4) << " ";//วันที่4วันก่อน
-    out << formatDate(day5) << " ";//วันที่5วันก่อน
-    out << formatDate(day6) << " " << endl;//วันที่6วันก่อน
+    out << formatDateNoYear(day1) << " ";//วันที่1วันก่อน
+    out << formatDateNoYear(day2) << " ";//วันที่2วันก่อน
+    out << formatDateNoYear(day3) << " ";//วันที่3วันก่อน
+    out << formatDateNoYear(day4) << " ";//วันที่4วันก่อน
+    out << formatDateNoYear(day5) << " ";//วันที่5วันก่อน
+    out << formatDateNoYear(day6) << " " << endl;//วันที่6วันก่อน
     out << "\n";
     out << "@ MONTHLY" << endl;
     out << "monthly_avg = " << avgMonth << " " << endl;//ค่าเฉลี่ยทั้งเดือน
