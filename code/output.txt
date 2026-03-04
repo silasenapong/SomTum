@@ -1,5 +1,5 @@
 @ DAILY
-daily_date = 2022/02/24 
+daily_date = 24/02/2022
 daily_time = 22 
 daily_pm = 119.42 
 daily_max = 218.83 
@@ -9,27 +9,25 @@ daily_hourly = 84.32 79.83 75.45 75.66 75.98 75.62 76.21 83.34 93.46 100.16 99.3
 
 @ WEEKLY
 weekly_avg = 67.2085 
-weekly_max_date = 2022/02/24 
+weekly_max_date = 24/02/2022
 weekly_max = 218.83 
-weekly_min_date = 2022/02/21 
+weekly_min_date = 21/02/2022
 weekly_min = 7.42 
 weekly_past = 87.5729 24.3975 21.2512 43.0375 75.9196 54.375 
-weekly_date = 2022/02/23 2022/02/22 2022/02/21 2022/02/20 2022/02/19 2022/02/18 
+weekly_date = 23/02/2022 22/02/2022 21/02/2022 20/02/2022 19/02/2022 18/02/2022 
 
 @ MONTHLY
 monthly_avg = 85.3121 
-monthly_max_date = 2022/02/10 
+monthly_max_date = 10/02/2022 
 monthly_max = 420.41 
-monthly_min_date = 2022/02/21 
+monthly_min_date = 21/02/2022 
 monthly_min = 7.42 
 
 @ YEARLY
 yearly_avg = 88.5584 
-yearly_max_month = 2021/11/16
+yearly_max_month = 16/11/2021
 yearly_max = 97.1739 
-2022
-yearly_min_month = 2021/06/27
+yearly_min_month = 27/06/2021
 yearly min = 25.8954 
-2021
 yearly_monthAvg = 93.2253 76.7047 77.4908 50.287 33.4969 25.8954 32.3476 44.7485 59.7002 72.273 97.1739 94.9412 
 yearly_dayCount = 9 
