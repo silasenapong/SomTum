@@ -1,3 +1,6 @@
+//จริงๆ เอาข้อมูลใน foder completed_data ไปประมวลทำFrontend ต่อได้เลยนะ หรือ
+//จะใช้code ด้านล่าที่จะดึงข้อมูลมาจาก Firebase ที่จะแปลงเป็น .txt ก็ได้เหมือนกัน
+
 #include <iostream>
 #include <fstream>
 #include <string>
