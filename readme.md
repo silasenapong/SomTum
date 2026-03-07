@@ -21,19 +21,19 @@ Data input - API/Sensors/File reader => clean data ready for analysis
 
 Data analysis - Stat/Trend/AQI logic => Algorithm, Validated Data
 
-- [] Recive data from Data input
-- [] Analysis data with algorithm
-- [] Send analysis data to Backend
+- [x] Recive data from Data input
+- [x] Analysis data with algorithm
+- [x] Send analysis data to Backend
 
 Backend - Database/Integration/Notification => Core application logic
 
-- [] Recive data from Data analysis and save to data base
+- [x] Recive data from Data analysis and save to data base
 - [] make notification
 - [] Backend stuff
 
 Frontend - Graph/Dashboard/UI => User interface for user
 
-- [] UX/UI design
-- [] Qt lib
-- [] Connect to data base (Real time is possible)
-- [] Show graph D/W/M/Y
+- [x] UX/UI design
+- [x] Qt lib
+- [x] Connect to data base (Real time is possible)
+- [x] Show graph D/W/M/Y
