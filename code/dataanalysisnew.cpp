@@ -223,7 +223,7 @@ int main() {
     }
 
     double avgYear = yearCount > 0 ? yearSum / yearCount : 0;
-    // ===== YEAR MAX / MIN ONLY =====
+    // YEAR MAX / MIN ONLY
 
     double yearSumAll[10] = {0};
     int yearCountAll[10] = {0};
