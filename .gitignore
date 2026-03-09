@@ -6,3 +6,5 @@
 *.exe
 .vscode/
 *.env
+vcpkg/
+node_modules/
