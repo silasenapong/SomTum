@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>YearlyPage</class>
+ <widget class="QWidget" name="YearlyPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1246</width>
+    <height>959</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <layout class="QVBoxLayout" name="y_linechart">
+     <item>
+      <widget class="QLabel" name="yearly_avg">
+       <property name="font">
+        <font>
+         <family>Cascadia Code</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>avg</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="yearly_month_min">
+       <property name="font">
+        <font>
+         <family>Cascadia Code</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>min</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="yearly_month_max">
+       <property name="font">
+        <font>
+         <family>Cascadia Code</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>max</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="yearly_pollday">
+       <property name="font">
+        <font>
+         <family>Cascadia Code</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>pollmonth</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="yearly_risk_level">
+       <property name="font">
+        <font>
+         <family>Cascadia Code</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>risk_level</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

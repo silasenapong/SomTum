@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>WeeklyPage</class>
+ <widget class="QWidget" name="WeeklyPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1144</width>
+    <height>737</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QWidget" name="w_barchart" native="true">
+<<<<<<< HEAD
+     <layout class="QVBoxLayout" name="verticalLayout_2"/>
+=======
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLabel" name="weekly_avg">
+        <property name="font">
+         <font>
+          <family>Cascadia Code</family>
+          <pointsize>20</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>weekly_avg</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="weekly_day_max">
+        <property name="font">
+         <font>
+          <family>Cascadia Code</family>
+          <pointsize>20</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>day_max</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="weekly_day_min">
+        <property name="font">
+         <font>
+          <family>Cascadia Code</family>
+          <pointsize>20</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>day_min</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="weekly_risk_level">
+        <property name="font">
+         <font>
+          <family>Cascadia Code</family>
+          <pointsize>20</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>risk_level</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+>>>>>>> ab1d932cbd8446e71a64bf40432cbe93af9eae64
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

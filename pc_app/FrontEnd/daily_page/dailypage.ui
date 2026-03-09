@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DailyPage</class>
+ <widget class="QWidget" name="DailyPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1165</width>
+    <height>760</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <layout class="QVBoxLayout" name="d_linechart">
+     <item>
+<<<<<<< HEAD
+      <widget class="QLabel" name="PM25_level">
+=======
+      <widget class="QLabel" name="daily_value">
+       <property name="font">
+        <font>
+         <family>Cascadia Code</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>daily_value</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="daily_level">
+       <property name="font">
+        <font>
+         <family>Cascadia Code</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>daily_level</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="daily_max">
+>>>>>>> ab1d932cbd8446e71a64bf40432cbe93af9eae64
+       <property name="font">
+        <font>
+         <family>Cascadia Code</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+<<<<<<< HEAD
+=======
+     <item>
+      <widget class="QLabel" name="daily_max_time">
+       <property name="font">
+        <font>
+         <family>Cascadia Code</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="daily_min">
+       <property name="font">
+        <font>
+         <family>Cascadia Code</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="warning_text">
+       <property name="font">
+        <font>
+         <family>Cascadia Code</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+>>>>>>> ab1d932cbd8446e71a64bf40432cbe93af9eae64
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
