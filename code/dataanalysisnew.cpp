@@ -16,12 +16,6 @@ string formatDateNoYear(string ymd) {
     return d + "/" + m;
 }
 
-string airLevel(double value) {
-    if (value <= 25) return "Good";
-    else if (value <= 50) return "Normal";
-    else if (value <= 100) return "Unhealthy";
-    else return "Dangerous";
-}
 double getAverage(string targetDate,string date[],double pm25[],int count) {
 
     double sum = 0;
