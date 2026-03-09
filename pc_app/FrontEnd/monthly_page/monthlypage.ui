@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>DailyPage</class>
- <widget class="QWidget" name="DailyPage">
+ <class>MonthlyPage</class>
+ <widget class="QWidget" name="MonthlyPage">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1165</width>
-    <height>760</height>
+    <width>1236</width>
+    <height>920</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,12 +15,9 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
-    <layout class="QVBoxLayout" name="d_linechart">
+    <layout class="QVBoxLayout" name="m_chartview">
      <item>
-<<<<<<< HEAD
-      <widget class="QLabel" name="PM25_level">
-=======
-      <widget class="QLabel" name="daily_value">
+      <widget class="QLabel" name="monthly_avg">
        <property name="font">
         <font>
          <family>Cascadia Code</family>
@@ -28,12 +25,12 @@
         </font>
        </property>
        <property name="text">
-        <string>daily_value</string>
+        <string>avg</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="daily_level">
+      <widget class="QLabel" name="monthly_day_max">
        <property name="font">
         <font>
          <family>Cascadia Code</family>
@@ -41,13 +38,12 @@
         </font>
        </property>
        <property name="text">
-        <string>daily_level</string>
+        <string>max</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="daily_max">
->>>>>>> ab1d932cbd8446e71a64bf40432cbe93af9eae64
+      <widget class="QLabel" name="monthly_day_min">
        <property name="font">
         <font>
          <family>Cascadia Code</family>
@@ -55,14 +51,15 @@
         </font>
        </property>
        <property name="text">
-        <string>TextLabel</string>
+        <string>min</string>
        </property>
       </widget>
      </item>
-<<<<<<< HEAD
-=======
      <item>
-      <widget class="QLabel" name="daily_max_time">
+      <widget class="QWidget" name="widget" native="true"/>
+     </item>
+     <item>
+      <widget class="QLabel" name="monthly_risk_level">
        <property name="font">
         <font>
          <family>Cascadia Code</family>
@@ -70,37 +67,13 @@
         </font>
        </property>
        <property name="text">
-        <string>TextLabel</string>
+        <string>risk_level</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="daily_min">
-       <property name="font">
-        <font>
-         <family>Cascadia Code</family>
-         <pointsize>20</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
+      <widget class="QListView" name="listView"/>
      </item>
-     <item>
-      <widget class="QLabel" name="warning_text">
-       <property name="font">
-        <font>
-         <family>Cascadia Code</family>
-         <pointsize>20</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
->>>>>>> ab1d932cbd8446e71a64bf40432cbe93af9eae64
     </layout>
    </item>
   </layout>
