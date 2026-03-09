@@ -5,6 +5,9 @@
 #include <QtCore>
 #include <QtWidgets>
 #include <QtCharts>
+#include <QString>
+#include <QValueAxis>
+#include <dataManager/datamanager.h>
 
 namespace Ui  {
 class WeeklyPage;
@@ -20,6 +23,7 @@ public:
 
 private:
     Ui::WeeklyPage *ui;
+    DataManager data;
 };
 
 #endif // WEEKLYPAGE_H

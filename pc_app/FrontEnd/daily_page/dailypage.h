@@ -6,6 +6,8 @@
 #include <QtWidgets>
 #include <QtCharts>
 #include <QString>
+#include <QValueAxis>
+#include "dataManager/datamanager.h"
 
 namespace Ui {
 class DailyPage;
@@ -21,6 +23,7 @@ public:
 
 private:
     Ui::DailyPage *ui;
+    DataManager data;
 };
 
 #endif // DAILYPAGE_H

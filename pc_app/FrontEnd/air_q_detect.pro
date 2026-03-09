@@ -10,19 +10,28 @@ CONFIG += c++17
 
 SOURCES += \
     daily_page/dailypage.cpp \
+    dataManager/datamanager.cpp \
     main.cpp \
     mainwindow.cpp \
-    weekly_page/weeklypage.cpp
+    monthly_page/monthlypage.cpp \
+    weekly_page/weeklypage.cpp \
+    yearly_page/yearlypage.cpp
+
 
 HEADERS += \
     daily_page/dailypage.h \
+    dataManager/datamanager.h \
     mainwindow.h \
-    weekly_page/weeklypage.h
+    monthly_page/monthlypage.h \
+    weekly_page/weeklypage.h \
+    yearly_page/yearlypage.h
 
 FORMS += \
     daily_page/dailypage.ui \
     mainwindow.ui \
-    weekly_page/weeklypage.ui
+    monthly_page/monthlypage.ui \
+    weekly_page/weeklypage.ui \
+    yearly_page/yearlypage.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
