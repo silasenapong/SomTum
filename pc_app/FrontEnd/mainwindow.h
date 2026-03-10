@@ -10,9 +10,12 @@
 
 #include "weekly_page/weeklypage.h"
 #include "daily_page/dailypage.h"
+<<<<<<< HEAD
+=======
 #include "monthly_page/monthlypage.h"
 #include "yearly_page/yearlypage.h"
 #include "dataManager/datamanager.h"
+>>>>>>> ab1d932cbd8446e71a64bf40432cbe93af9eae64
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -29,14 +32,23 @@ public:
     ~MainWindow();
 
 private slots:
+<<<<<<< HEAD
+    void on_weekly_button_clicked();
+    void on_daily_button_clicked();
+=======
     void on_daily_button_clicked();
     void on_weekly_button_clicked();
     void on_monthly_button_clicked();
     void on_yearly_button_clicked();
+>>>>>>> ab1d932cbd8446e71a64bf40432cbe93af9eae64
 
 
 private:
     Ui::MainWindow *ui;
+<<<<<<< HEAD
+    WeeklyPage *weekly_page; // ptr
+    DailyPage *daily_page;
+=======
      // ptr
     DailyPage *daily_page;
     WeeklyPage *weekly_page;
@@ -46,5 +58,6 @@ private:
 
 
 
+>>>>>>> ab1d932cbd8446e71a64bf40432cbe93af9eae64
 };
 #endif // MAINWINDOW_H

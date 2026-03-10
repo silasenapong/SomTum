@@ -16,6 +16,9 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QWidget" name="w_barchart" native="true">
+<<<<<<< HEAD
+     <layout class="QVBoxLayout" name="verticalLayout_2"/>
+=======
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
        <widget class="QLabel" name="weekly_avg">
@@ -70,6 +73,7 @@
        </widget>
       </item>
      </layout>
+>>>>>>> ab1d932cbd8446e71a64bf40432cbe93af9eae64
     </widget>
    </item>
   </layout>

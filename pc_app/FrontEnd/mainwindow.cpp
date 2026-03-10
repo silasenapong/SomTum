@@ -8,14 +8,21 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+<<<<<<< HEAD
+=======
     // Add Page to Stacked Widgets
 
+>>>>>>> ab1d932cbd8446e71a64bf40432cbe93af9eae64
     daily_page = new DailyPage(this);
     ui->stackedWidget->addWidget(daily_page);
 
     weekly_page = new WeeklyPage(this);
     ui->stackedWidget->addWidget(weekly_page);
 
+<<<<<<< HEAD
+    ui->stackedWidget->setCurrentWidget(daily_page);
+
+=======
     monthly_page = new MonthlyPage(this);
     ui->stackedWidget->addWidget(monthly_page);
 
@@ -49,6 +56,7 @@ MainWindow::MainWindow(QWidget *parent)
 void MainWindow::on_daily_button_clicked()
 {
     ui->stackedWidget->setCurrentWidget(daily_page);
+>>>>>>> ab1d932cbd8446e71a64bf40432cbe93af9eae64
 }
 
 void MainWindow::on_weekly_button_clicked()
@@ -56,6 +64,11 @@ void MainWindow::on_weekly_button_clicked()
     ui->stackedWidget->setCurrentWidget(weekly_page);
 }
 
+<<<<<<< HEAD
+void MainWindow::on_daily_button_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(daily_page);
+=======
 void MainWindow::on_monthly_button_clicked()
 {
     ui->stackedWidget->setCurrentWidget(monthly_page);
@@ -64,6 +77,7 @@ void MainWindow::on_monthly_button_clicked()
 void MainWindow::on_yearly_button_clicked()
 {
     ui->stackedWidget->setCurrentWidget(yearly_page);
+>>>>>>> ab1d932cbd8446e71a64bf40432cbe93af9eae64
 }
 
 MainWindow::~MainWindow()

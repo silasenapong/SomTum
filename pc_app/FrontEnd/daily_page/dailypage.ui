@@ -17,6 +17,9 @@
    <item>
     <layout class="QVBoxLayout" name="d_linechart">
      <item>
+<<<<<<< HEAD
+      <widget class="QLabel" name="PM25_level">
+=======
       <widget class="QLabel" name="daily_value">
        <property name="font">
         <font>
@@ -44,6 +47,7 @@
      </item>
      <item>
       <widget class="QLabel" name="daily_max">
+>>>>>>> ab1d932cbd8446e71a64bf40432cbe93af9eae64
        <property name="font">
         <font>
          <family>Cascadia Code</family>
@@ -55,6 +59,8 @@
        </property>
       </widget>
      </item>
+<<<<<<< HEAD
+=======
      <item>
       <widget class="QLabel" name="daily_max_time">
        <property name="font">
@@ -94,6 +100,7 @@
        </property>
       </widget>
      </item>
+>>>>>>> ab1d932cbd8446e71a64bf40432cbe93af9eae64
     </layout>
    </item>
   </layout>
