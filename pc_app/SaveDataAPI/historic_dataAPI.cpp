@@ -33,14 +33,64 @@ std::atomic<bool> keep_running(true);
 void show_spinner(std::string message);
 std::string getEnvVar(std::string key);
 std::string formatDateTime(long long timestamp);
+void fetchData();
 
 int main()
+{
+    fetchData();
+
+    return 0;
+}
+
+void show_spinner(std::string message)
+{
+    const char spinner[] = {'|', '/', '-', '\\'};
+    int i = 0;
+    while (keep_running)
+    {
+        std::cout << "\r" << message << " " << spinner[i++ % 4] << std::flush;
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    }
+    std::cout << "\r" << std::string(60, ' ') << "\r";
+}
+
+std::string getEnvVar(std::string key)
+{
+    std::ifstream file("api.env");
+    std::string line;
+    while (std::getline(file, line))
+    {
+        std::istringstream is_line(line);
+        std::string l_key;
+        if (std::getline(is_line, l_key, '='))
+        {
+            std::string l_value;
+            if (std::getline(is_line, l_value))
+            {
+                if (l_key == key)
+                    return l_value;
+            }
+        }
+    }
+    return "";
+}
+
+std::string formatDateTime(long long timestamp)
+{
+    std::time_t temp = static_cast<std::time_t>(timestamp);
+    std::tm *t = std::localtime(&temp);
+    char buffer[25];
+    std::strftime(buffer, sizeof(buffer), "%Y/%m/%d,%H:%M:%S", t);
+    return std::string(buffer);
+}
+
+void fetchData()
 {
     std::string apiKey = getEnvVar("OPENWEATHER_API_KEY");
     if (apiKey.empty())
     {
         std::cerr << "Error: API Key not found in api.env" << std::endl;
-        return 1;
+        return;
     }
 
     std::string lat = "18.7883";
@@ -126,48 +176,4 @@ int main()
 
         std::this_thread::sleep_for(std::chrono::seconds(1));
     }
-
-    return 0;
-}
-
-void show_spinner(std::string message)
-{
-    const char spinner[] = {'|', '/', '-', '\\'};
-    int i = 0;
-    while (keep_running)
-    {
-        std::cout << "\r" << message << " " << spinner[i++ % 4] << std::flush;
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
-    }
-    std::cout << "\r" << std::string(60, ' ') << "\r";
-}
-
-std::string getEnvVar(std::string key)
-{
-    std::ifstream file("api.env");
-    std::string line;
-    while (std::getline(file, line))
-    {
-        std::istringstream is_line(line);
-        std::string l_key;
-        if (std::getline(is_line, l_key, '='))
-        {
-            std::string l_value;
-            if (std::getline(is_line, l_value))
-            {
-                if (l_key == key)
-                    return l_value;
-            }
-        }
-    }
-    return "";
-}
-
-std::string formatDateTime(long long timestamp)
-{
-    std::time_t temp = static_cast<std::time_t>(timestamp);
-    std::tm *t = std::localtime(&temp);
-    char buffer[25];
-    std::strftime(buffer, sizeof(buffer), "%Y/%m/%d,%H:%M:%S", t);
-    return std::string(buffer);
 }
