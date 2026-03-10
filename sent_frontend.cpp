@@ -1,6 +1,3 @@
-//จริงๆ เอาข้อมูลใน foder completed_data ไปประมวลทำFrontend ต่อได้เลยนะ หรือ
-//จะใช้code ด้านล่าที่จะดึงข้อมูลมาจาก Firebase ที่จะแปลงเป็น .txt ก็ได้เหมือนกัน
-
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -9,12 +6,12 @@
 using namespace std;
 
 int main() {
-    // 1. ตั้งแหล่งที่จะดึงข้อมูล คือ datalog 
+    // ตั้งแหล่งที่จะดึงข้อมูล คือ datalog 
     string projectId = "studio-215835202-3b08b"; 
     string collection = "datalog"; 
     string url = "https://firestore.googleapis.com/v1/projects/" + projectId + "/databases/(default)/documents/" + collection;
     
-    // 2. Set(Raw JSON) และไฟล์.txt เพื่อจะส่งไปให้ Frontend
+    // Set(Raw JSON) และไฟล์.txt เพื่อจะส่งไปให้ Frontend
     string rawFile = "temp_raw_data.json";
     string cleanTxtFile = "frontend_datalog.txt";
 
@@ -22,7 +19,7 @@ int main() {
     cout << "  [Backend Support] Fetching & Converting" << endl;
     cout << "=========================================" << endl;
 
-    // 3. ใช้ curl ดึงข้อมูล
+    // ใช้ curl ดึงข้อมูล
     string command = "curl -s -X GET \"" + url + "\" > " + rawFile;
     int result = system(command.c_str());
     
@@ -31,7 +28,7 @@ int main() {
         return 1;
     }
 
-    // 4. แปลงข้อมูลจาก JSON ให้กลายเป็น .txt 
+    // แปลงข้อมูลจาก JSON ให้กลายเป็น .txt 
     ifstream inFile(rawFile);
     ofstream outFile(cleanTxtFile);
     string line;
@@ -89,10 +86,10 @@ int main() {
             // เมื่อเจอ createTime แปลว่าจบ 1 set ให้เขียนลงไฟล์ .txt
             if(line.find("\"createTime\"") != string::npos) {
                 if(date != "") {
-                    // เขียนข้อมูลลงไฟล์ .txt 
+                    // เขียนข้อมูลลง .txt 
                     outFile << date << "," << time << "," << temp << "," << humid << "," << pm25 << "\n";
                     
-                    // ล้างค่าต่างๆเพื่อเตรียมรับข้อมูลชุดต่อไป
+                    // ล้างค่าเก่าเพื่อเตรียมรับข้อมูลชุดใหม่
                     date = ""; time = ""; temp = ""; humid = ""; pm25 = "";
                 }
             }
