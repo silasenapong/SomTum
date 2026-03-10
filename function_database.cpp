@@ -12,19 +12,11 @@ namespace fs = std::filesystem;
 
 // setting path และ URL สำหรับ Firebase
 const string FOLDER_PATH = "./data_clean";
-const string COMPLETED_FOLDER_PATH = "./completed_data";
 const string PROJECT_ID = "studio-215835202-3b08b"; 
 const string COLLECTION = "datalog"; 
 const string URL = "https://firestore.googleapis.com/v1/projects/" + PROJECT_ID + "/databases/(default)/documents/" + COLLECTION;
 
-// เตรียมพร้อมfolder ที่เก็บข้อมูลเสร็จแล้ว
-void setupFolders() {
-    if (!fs::exists(COMPLETED_FOLDER_PATH)) {
-        fs::create_directory(COMPLETED_FOLDER_PATH);
-    }
-}
-
-    // ส่งข้อมูลไปยัง Firebase โดยcurl ผ่านเข้าระบบ
+// ส่งข้อมูลไปยัง Firebase โดยcurl ผ่านเข้าระบบ
 void uploadToFirebase(const string& dateStr, const string& timeStr, const string& tempStr, const string& humidStr, const string& pm25Str) {
     string jsonData = "{\\\"fields\\\": {"
         "\\\"date\\\": {\\\"stringValue\\\": \\\"" + dateStr + "\\\"}, "
@@ -38,7 +30,7 @@ void uploadToFirebase(const string& dateStr, const string& timeStr, const string
     system(command.c_str());
 }
 
-// จัดการไฟล์ (อ่าน, แยกตัวแปร, ส่งขึ้น Cloud, ย้ายไฟล์)
+// จัดการไฟล์ (อ่าน, แยกตัวแปร, ส่งขึ้น Cloud, ลบไฟล์ทิ้ง)
 void processFile(const fs::directory_entry& entry) {
     string filePath = entry.path().string();
     string fileName = entry.path().filename().string();
@@ -48,10 +40,11 @@ void processFile(const fs::directory_entry& entry) {
     
     if (inputFile.is_open()) {
         getline(inputFile, line);
-        inputFile.close();
+        inputFile.close(); // ปิดไฟล์ก่อนลบ
         
         stringstream ss(line);
         string dateStr, timeStr, tempStr, humidStr, pm25Str;
+        
         // ตัวแปร (วันที่, เวลา, อุณหภูมิ, ความชื้น, PM2.5)
         getline(ss, dateStr, ',');
         getline(ss, timeStr, ',');
@@ -68,16 +61,14 @@ void processFile(const fs::directory_entry& entry) {
         // ยิงขึ้น Firebase
         uploadToFirebase(dateStr, timeStr, tempStr, humidStr, pm25Str);
         
-        // ย้ายไฟล์ที่อ่านเสร็จแล้ว
-        string newFilePath = COMPLETED_FOLDER_PATH + "/" + fileName;
-        if (fs::exists(newFilePath)) fs::remove(newFilePath);
-        fs::rename(filePath, newFilePath);
+        // ลบไฟล์ทิ้งหลังจากอ่านและส่งข้อมูลเสร็จแล้ว
+        fs::remove(filePath);
         
-        cout << "Done & Moved!" << endl;
+        cout << "Done & Deleted!" << endl;
     }
 }
 
-//สรุปผลการทำงานของแต่ละรอบ(ผ่าน/ไม่ผ่าน)
+// สรุปผลการทำงานของแต่ละรอบ(ผ่าน/ไม่ผ่าน)
 void processDirectory() {
     if (!fs::exists(FOLDER_PATH)) {
         cout << "\nError: Folder '" << FOLDER_PATH << "' not found!" << endl;
@@ -98,22 +89,20 @@ void processDirectory() {
     if (fileCount == 0) {
         cout << "No new files found in '" << FOLDER_PATH << "'." << endl;
     } else {
-        cout << "Successfully processed " << fileCount << " files." << endl;
+        cout << "Successfully processed and deleted " << fileCount << " files." << endl;
     }
 }
 
 int main() {
-    setupFolders(); // เช็คโฟลเดอร์ก่อนเริ่มrun
-
     cout << "=========================================" << endl;
     cout << "  Auto Data Pipeline Started!            " << endl;
-    cout << "  Checking folder every 5 minutes...        " << endl;
+    cout << "  Checking folder every 5 minutes...     " << endl;
     cout << "  (Press Ctrl + C to stop the program)   " << endl;
     cout << "=========================================" << endl;
 
     // ลูปทำงานตลอดเวลา
     while (true) {
-        processDirectory(); // สั่งให้เริ่มเช็คโฟลเดอร์และอัปโหลดข้อมูล
+        processDirectory(); // สั่งให้เริ่มเช็คfolder และ upload data
         
         cout << "\nWaiting for 5 minutes before the next check..." << endl;
         std::this_thread::sleep_for(std::chrono::minutes(5));
