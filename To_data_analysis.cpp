@@ -4,10 +4,7 @@
 #include <cstdlib>
 
 using namespace std;
-
-// ==========================================
-// ส่วนตั้งค่าตัวแปร Global
-// ==========================================
+// setting path และ URL ของFirebase
 const string PROJECT_ID = "studio-215835202-3b08b"; 
 const string COLLECTION = "datalog"; 
 const string URL = "https://firestore.googleapis.com/v1/projects/" + PROJECT_ID + "/databases/(default)/documents/" + COLLECTION;
@@ -15,7 +12,7 @@ const string URL = "https://firestore.googleapis.com/v1/projects/" + PROJECT_ID 
 const string RAW_JSON_FILE = "temp_raw_data.json";
 const string OUTPUT_TXT_FILE = "data_api.txt"; 
 
-// ฟังก์ชันดึงข้อมูลดิบจาก Firebase
+// ดึงข้อมูลดิบจาก Firebase
 bool fetchFromFirebase() {
     cout << "-> [1/2] Fetching data from Firebase..." << endl;
     string command = "curl -s -X GET \"" + URL + "\" > " + RAW_JSON_FILE;
