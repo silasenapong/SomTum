@@ -1,0 +1,222 @@
+@ DAILY
+daily_date = 01/03/2026
+daily_time = 12
+daily_pm = 48.60
+daily_max = 76.40
+daily_min = 12.40
+daily_max_time = 12:05:44
+daily_hourly = 45.30 56.00 78.00 56.00 45.00 12.40 23.00 34.00 40.00 50.00 60.00 55.00 44.00 33.00 22.00 11.00 15.00 20.00 25.00 30.00 35.00 40.00 45.00 50.00
+
+@ WEEKLY 
+weekly_avg = 57.00
+weekly_max_date = 27/02/2026
+weekly_max = 90.00
+weekly_min_date = 25/02/2026
+weekly_min = 13.00
+weekly_past = 34.50 38.00 20.00 54.00 14.00 98.00
+weekly_date = 28/02 27/02 26/02 25/02 24/02 23/02
+
+@ MONTHLY 
+monthly_avg = 54.00
+monthly_max_date = 14/02/2026
+monthly_max = 98.00
+monthly_min_date = 03/02/2026
+monthly_min = 5.00
+
+@ YEARLY
+yearly_avg = 54.00
+yearly_max_month = 11
+yearly_max = 87.00
+yearly_min_month = 07
+yearly_min = 14.00
+yearly_monthAvg = 100.00 34.00 43.00 76.00 0 0 0 0 0 0 0 0
+yearly_dayCount = 43
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ถ้าใน dataManger.h dataManager.cpp เป็นแบบนี้ เมื่อเราจะใช้ตัวแปรที่เก็บค่าใน mainwindow.cpp เราต้องเรียกใช้ loadData ใช่มั้ย หรือ เราเรียก loadData ใน dataManager.cpp แล้วเรา include dataManger.h ใน mainwindow.cpp แล้วเราเรียกใช้ค่าเลยได้มั้ย
+
+//dataManage.h
+
+struct DailyData {
+    char date[20];
+    int pm;
+    double max;
+    double min;
+    char max_time[20];
+    double hourly[24];
+};
+
+struct WeeklyData {
+    double avg;
+    char max_date[20];
+    double max;
+    char min_date[20];
+    double min;
+    double past[6];
+    char past_date[6][20];
+};
+
+struct MonthlyData {
+    double avg;
+    char max_date[20];
+    double max;
+    char min_date[20];
+    double min;
+};
+
+struct YearlyData {
+    double avg;
+    int max_month;
+    double max;
+    int min_month;
+    double min;
+    double monthAvg[12];
+    int pm_count;
+};
+
+class DataManager {
+public:
+    DailyData daily;
+    WeeklyData weekly;
+    MonthlyData monthly;
+    YearlyData yearly;
+
+    void loadData(const char* filename);
+};
+
+//dataManager.cpp
+
+
+#include <iostream>
+#include <fstream>
+#include <cstring>
+using namespace std;
+
+void DataManager::loadData(const char* filename)
+{
+    ifstream file(filename);
+    char line[500];
+
+    while(file.getline(line, 500))
+    {
+        if(strlen(line) == 0 || line[0] == '@')
+            continue;
+
+        // ===== DAILY =====
+        if(strncmp(line,"daily_date =",12)==0)
+            sscanf(line,"daily_date = %s",daily.date);
+
+        else if(strncmp(line,"daily_pm =",10)==0)
+        {
+            double temp;
+            sscanf(line,"daily_pm = %lf",&temp);
+            daily.pm = (int)temp;   // เพราะ struct ใช้ int
+        }
+
+        else if(strncmp(line,"daily_max =",11)==0)
+            sscanf(line,"daily_max = %lf",&daily.max);
+
+        else if(strncmp(line,"daily_min =",11)==0)
+            sscanf(line,"daily_min = %lf",&daily.min);
+
+        else if(strncmp(line,"daily_max_time =",16)==0)
+            sscanf(line,"daily_max_time = %s",daily.max_time);
+
+        else if(strncmp(line,"daily_hourly =",14)==0)
+        {
+            sscanf(line,
+            "daily_hourly = %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf",
+            &daily.hourly[0],&daily.hourly[1],&daily.hourly[2],&daily.hourly[3],
+            &daily.hourly[4],&daily.hourly[5],&daily.hourly[6],&daily.hourly[7],
+            &daily.hourly[8],&daily.hourly[9],&daily.hourly[10],&daily.hourly[11],
+            &daily.hourly[12],&daily.hourly[13],&daily.hourly[14],&daily.hourly[15],
+            &daily.hourly[16],&daily.hourly[17],&daily.hourly[18],&daily.hourly[19],
+            &daily.hourly[20],&daily.hourly[21],&daily.hourly[22],&daily.hourly[23]);
+        }
+
+        // ===== WEEKLY =====
+        else if(strncmp(line,"weekly_avg =",12)==0)
+            sscanf(line,"weekly_avg = %lf",&weekly.avg);
+
+        else if(strncmp(line,"weekly_max_date =",17)==0)
+            sscanf(line,"weekly_max_date = %s",weekly.max_date);
+
+        else if(strncmp(line,"weekly_max =",13)==0)
+            sscanf(line,"weekly_max = %lf",&weekly.max);
+
+        else if(strncmp(line,"weekly_min_date =",17)==0)
+            sscanf(line,"weekly_min_date = %s",weekly.min_date);
+
+        else if(strncmp(line,"weekly_min =",13)==0)
+            sscanf(line,"weekly_min = %lf",&weekly.min);
+
+        else if(strncmp(line,"weekly_past =",14)==0)
+            sscanf(line,
+            "weekly_past = %lf %lf %lf %lf %lf %lf",
+            &weekly.past[0],&weekly.past[1],&weekly.past[2],
+            &weekly.past[3],&weekly.past[4],&weekly.past[5]);
+
+        else if(strncmp(line,"weekly_date =",14)==0)
+            sscanf(line,
+            "weekly_date = %s %s %s %s %s %s",
+            weekly.past_date[0],weekly.past_date[1],weekly.past_date[2],
+            weekly.past_date[3],weekly.past_date[4],weekly.past_date[5]);
+
+        // ===== MONTHLY =====
+        else if(strncmp(line,"monthly_avg =",13)==0)
+            sscanf(line,"monthly_avg = %lf",&monthly.avg);
+
+        else if(strncmp(line,"monthly_max_date =",18)==0)
+            sscanf(line,"monthly_max_date = %s",monthly.max_date);
+
+        else if(strncmp(line,"monthly_max =",14)==0)
+            sscanf(line,"monthly_max = %lf",&monthly.max);
+
+        else if(strncmp(line,"monthly_min_date =",18)==0)
+            sscanf(line,"monthly_min_date = %s",monthly.min_date);
+
+        else if(strncmp(line,"monthly_min =",14)==0)
+            sscanf(line,"monthly_min = %lf",&monthly.min);
+
+        // ===== YEARLY =====
+        else if(strncmp(line,"yearly_avg =",12)==0)
+            sscanf(line,"yearly_avg = %lf",&yearly.avg);
+
+        else if(strncmp(line,"yearly_max_month =",18)==0)
+            sscanf(line,"yearly_max_month = %d",&yearly.max_month);
+
+        else if(strncmp(line,"yearly_max =",13)==0)
+            sscanf(line,"yearly_max = %lf",&yearly.max);
+
+        else if(strncmp(line,"yearly_min_month =",18)==0)
+            sscanf(line,"yearly_min_month = %d",&yearly.min_month);
+
+        else if(strncmp(line,"yearly_min =",13)==0)
+            sscanf(line,"yearly_min = %lf",&yearly.min);
+
+        else if(strncmp(line,"yearly_monthAvg =",17)==0)
+            sscanf(line,
+            "yearly_monthAvg = %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf",
+            &yearly.monthAvg[0],&yearly.monthAvg[1],&yearly.monthAvg[2],
+            &yearly.monthAvg[3],&yearly.monthAvg[4],&yearly.monthAvg[5],
+            &yearly.monthAvg[6],&yearly.monthAvg[7],&yearly.monthAvg[8],
+            &yearly.monthAvg[9],&yearly.monthAvg[10],&yearly.monthAvg[11]);
+
+        else if(strncmp(line,"yearly_dayCount =",16)==0)
+            sscanf(line,"yearly_dayCount = %d",&yearly.pm_count);
+    }
+
+    file.close();
+}

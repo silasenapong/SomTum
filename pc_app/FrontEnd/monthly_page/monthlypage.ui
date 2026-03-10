@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MonthlyPage</class>
+ <widget class="QWidget" name="MonthlyPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1236</width>
+    <height>920</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <layout class="QVBoxLayout" name="m_chartview">
+     <item>
+      <widget class="QLabel" name="monthly_avg">
+       <property name="font">
+        <font>
+         <family>Cascadia Code</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>avg</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="monthly_day_max">
+       <property name="font">
+        <font>
+         <family>Cascadia Code</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>max</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="monthly_day_min">
+       <property name="font">
+        <font>
+         <family>Cascadia Code</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>min</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget" native="true"/>
+     </item>
+     <item>
+      <widget class="QLabel" name="monthly_risk_level">
+       <property name="font">
+        <font>
+         <family>Cascadia Code</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>risk_level</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QListView" name="listView"/>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
