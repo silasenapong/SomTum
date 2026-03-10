@@ -28,7 +28,8 @@ std::string getDateString()
 int main()
 {
 
-    std::string folderPath = (std::filesystem::current_path() / "data" / "").generic_string();
+    std::string folderPath = "../../data/";
+    // std::string folderPath = (std::filesystem::current_path() / "data" / "").generic_string();
     // std::string folderPath = "Y:\\file\\CMU\\year_2\\SomTum\\SomTum\\data\\";
     // std::cout << folderPath << std::endl;
 
