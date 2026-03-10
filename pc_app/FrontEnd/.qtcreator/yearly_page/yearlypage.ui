@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>DailyPage</class>
- <widget class="QWidget" name="DailyPage">
+ <class>YearlyPage</class>
+ <widget class="QWidget" name="YearlyPage">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1165</width>
-    <height>760</height>
+    <width>1246</width>
+    <height>959</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,9 +15,9 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
-    <layout class="QVBoxLayout" name="d_linechart">
+    <layout class="QVBoxLayout" name="y_linechart">
      <item>
-      <widget class="QLabel" name="daily_value">
+      <widget class="QLabel" name="yearly_avg">
        <property name="font">
         <font>
          <family>Cascadia Code</family>
@@ -25,12 +25,12 @@
         </font>
        </property>
        <property name="text">
-        <string>daily_value</string>
+        <string>avg</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="daily_level">
+      <widget class="QLabel" name="yearly_month_min">
        <property name="font">
         <font>
          <family>Cascadia Code</family>
@@ -38,12 +38,12 @@
         </font>
        </property>
        <property name="text">
-        <string>daily_level</string>
+        <string>min</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="daily_max">
+      <widget class="QLabel" name="yearly_month_max">
        <property name="font">
         <font>
          <family>Cascadia Code</family>
@@ -51,12 +51,12 @@
         </font>
        </property>
        <property name="text">
-        <string>TextLabel</string>
+        <string>max</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="daily_max_time">
+      <widget class="QLabel" name="yearly_pollday">
        <property name="font">
         <font>
          <family>Cascadia Code</family>
@@ -64,12 +64,12 @@
         </font>
        </property>
        <property name="text">
-        <string>TextLabel</string>
+        <string>pollmonth</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="daily_min">
+      <widget class="QLabel" name="yearly_risk_level">
        <property name="font">
         <font>
          <family>Cascadia Code</family>
@@ -77,20 +77,7 @@
         </font>
        </property>
        <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="warning_text">
-       <property name="font">
-        <font>
-         <family>Cascadia Code</family>
-         <pointsize>20</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string/>
+        <string>risk_level</string>
        </property>
       </widget>
      </item>

@@ -16,7 +16,7 @@ WeeklyPage::WeeklyPage(QWidget *parent)
 
 void WeeklyPage::showData(){
 
-    data.loadData("output.txt");
+    data.loadData("data.txt");
 
     //Declare
     QString level_text;

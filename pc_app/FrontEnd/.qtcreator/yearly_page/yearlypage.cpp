@@ -17,7 +17,7 @@ YearlyPage::YearlyPage(QWidget *parent)
 void YearlyPage::showData(){
 
     //LoadData
-    data.loadData("output.txt");
+    data.loadData("data.txt");
 
     //Declare
 

@@ -16,7 +16,7 @@ MonthlyPage::MonthlyPage(QWidget *parent)
 
 void MonthlyPage::showData(){
     //LoadData
-    data.loadData("output.txt");
+    data.loadData("data.txt");
 
     //Declare
     QString level_text;

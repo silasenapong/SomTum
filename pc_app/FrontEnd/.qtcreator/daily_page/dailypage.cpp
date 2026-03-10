@@ -18,7 +18,7 @@ DailyPage::DailyPage(QWidget *parent)
 
 void DailyPage::showData(){
     // LoadData
-    data.loadData("output.txt");
+    data.loadData("data.txt");
 
     // Declare
     QString level_text;
