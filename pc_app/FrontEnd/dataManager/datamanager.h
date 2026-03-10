@@ -2,6 +2,9 @@
 #define DATAMANAGER_H
 
 #include <QWidget>
+#include "cstdlib"
+#include "dataManager/datamanager.h"
+
 
 
 class dataManager : public QWidget

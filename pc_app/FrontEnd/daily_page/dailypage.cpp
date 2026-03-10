@@ -1,7 +1,6 @@
 #include "dailypage.h"
 #include "ui_dailypage.h"
-#include "cstdlib"
-#include "dataManager/datamanager.h"
+
 
 DailyPage::DailyPage(QWidget *parent)
     : QWidget(parent)
@@ -9,6 +8,15 @@ DailyPage::DailyPage(QWidget *parent)
 {
     ui->setupUi(this);
 
+    showData();
+
+    QTimer *timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &DailyPage::showData);
+    timer->start(300000);
+
+}
+
+void DailyPage::showData(){
     // LoadData
     data.loadData("data.txt");
 

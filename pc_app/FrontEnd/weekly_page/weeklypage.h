@@ -9,6 +9,7 @@
 #include <QValueAxis>
 #include <dataManager/datamanager.h>
 
+
 namespace Ui  {
 class WeeklyPage;
 }
@@ -24,6 +25,7 @@ public:
 private:
     Ui::WeeklyPage *ui;
     DataManager data;
+    void showData();
 };
 
 #endif // WEEKLYPAGE_H

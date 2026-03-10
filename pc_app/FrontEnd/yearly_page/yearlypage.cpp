@@ -7,6 +7,15 @@ YearlyPage::YearlyPage(QWidget *parent)
 {
     ui->setupUi(this);
 
+
+    showData();
+    QTimer *timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &YearlyPage::showData);
+    timer->start(300000);
+}
+
+void YearlyPage::showData(){
+
     //LoadData
     data.loadData("data.txt");
 
@@ -43,7 +52,7 @@ YearlyPage::YearlyPage(QWidget *parent)
 
     // show poll_day
 
-     ui->yearly_pollday->setText("จำนวนวันที่เกินค่ามาตราฐาน: " + QString::number(data.yearly.pm_count) + " วัน" );
+    ui->yearly_pollday->setText("จำนวนวันที่เกินค่ามาตราฐาน: " + QString::number(data.yearly.pm_count) + " วัน" );
 
 
     //bar charts (weekly)
@@ -52,7 +61,7 @@ YearlyPage::YearlyPage(QWidget *parent)
     QBarSet *set_1 = new QBarSet("");
 
     for (int i = 0; i < 12; i++){
-    set_1->append(data.yearly.monthAvg[i]);
+        set_1->append(data.yearly.monthAvg[i]);
     }
 
     set_1->setColor(Qt::blue);
@@ -101,7 +110,7 @@ YearlyPage::YearlyPage(QWidget *parent)
     QLineSeries *yearly_line = new QLineSeries();
 
     for (int i = 0; i < 12; i++){
-    yearly_line->append(i+1,data.yearly.monthAvg[i]);
+        yearly_line->append(i+1,data.yearly.monthAvg[i]);
     }
 
     QChart *chart = new QChart();
@@ -161,6 +170,7 @@ YearlyPage::YearlyPage(QWidget *parent)
 
     ui->y_linechart->addWidget(scroll);
 }
+
 
 YearlyPage::~YearlyPage()
 {

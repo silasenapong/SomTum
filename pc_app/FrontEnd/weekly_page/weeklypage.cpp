@@ -1,12 +1,20 @@
 #include "weeklypage.h"
 #include "ui_weeklypage.h"
-#include "dataManager/datamanager.h"
+
 
 WeeklyPage::WeeklyPage(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::WeeklyPage)
 {
     ui->setupUi(this);
+
+    showData();
+    QTimer *timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &WeeklyPage::showData);
+    timer->start(300000);
+}
+
+void WeeklyPage::showData(){
 
     data.loadData("data.txt");
 
@@ -42,7 +50,7 @@ WeeklyPage::WeeklyPage(QWidget *parent)
     QBarSet *set_1 = new QBarSet(" 1 ");
 
     for (int i = 0; i < 6; i++){
-       set_1->append(data.weekly.past[i]); //value
+        set_1->append(data.weekly.past[i]); //value
     }
     set_1->append(data.daily.pm);
 
@@ -58,9 +66,9 @@ WeeklyPage::WeeklyPage(QWidget *parent)
     QStringList day_list;
 
     for (int i = 0; i < 6; i++){
-          day_list.append(QString(data.weekly.past_date[5-i]));
+        day_list.append(QString(data.weekly.past_date[5-i]));
     }
-     day_list.append(QString(data.daily.date));
+    day_list.append(QString(data.daily.date));
 
     QBarCategoryAxis *axis_x = new QBarCategoryAxis();  // AxisX
     axis_x->append(day_list);

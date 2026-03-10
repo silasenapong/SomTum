@@ -24,6 +24,7 @@ public:
 private:
     Ui::YearlyPage *ui;
     DataManager data;
+    void showData();
 };
 
 #endif // YEARLYPAGE_H

@@ -23,6 +23,7 @@ public:
 private:
     Ui::MonthlyPage *ui;
     DataManager data;
+    void showData();
 };
 
 #endif // MONTHLYPAGE_H
