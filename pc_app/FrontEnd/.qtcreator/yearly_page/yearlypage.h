@@ -1,5 +1,5 @@
-#ifndef WEEKLYPAGE_H
-#define WEEKLYPAGE_H
+#ifndef YEARLYPAGE_H
+#define YEARLYPAGE_H
 
 #include <QtGui>
 #include <QtCore>
@@ -9,23 +9,22 @@
 #include <QValueAxis>
 #include <dataManager/datamanager.h>
 
-
-namespace Ui  {
-class WeeklyPage;
+namespace Ui {
+class YearlyPage;
 }
 
-class WeeklyPage : public QWidget
+class YearlyPage : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit WeeklyPage(QWidget *parent = nullptr);
-    ~WeeklyPage();
+    explicit YearlyPage(QWidget *parent = nullptr);
+    ~YearlyPage();
 
 private:
-    Ui::WeeklyPage *ui;
+    Ui::YearlyPage *ui;
     DataManager data;
     void showData();
 };
 
-#endif // WEEKLYPAGE_H
+#endif // YEARLYPAGE_H
