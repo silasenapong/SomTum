@@ -7,6 +7,14 @@ MonthlyPage::MonthlyPage(QWidget *parent)
 {
     ui->setupUi(this);
 
+    showData();
+    QTimer *timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &MonthlyPage::showData);
+    timer->start(300000);
+
+}
+
+void MonthlyPage::showData(){
     //LoadData
     data.loadData("data.txt");
 
@@ -29,7 +37,6 @@ MonthlyPage::MonthlyPage(QWidget *parent)
     else if (data.monthly.avg >= 15.1) level_text = "ดี";
     else level_text = "ดีมาก";
     ui->monthly_risk_level->setText("คุณภาพอากาศเดือนนี้: " + level_text);
-
 }
 
 MonthlyPage::~MonthlyPage()

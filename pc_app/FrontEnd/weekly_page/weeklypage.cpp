@@ -1,9 +1,13 @@
 #include "weeklypage.h"
 #include "ui_weeklypage.h"
 <<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
 =======
 #include "dataManager/datamanager.h"
 >>>>>>> ab1d932cbd8446e71a64bf40432cbe93af9eae64
+>>>>>>> 3a89fb51330640c0e8ba8622c6504dd0bff91c00
 
 WeeklyPage::WeeklyPage(QWidget *parent)
     : QWidget(parent)
@@ -11,6 +15,16 @@ WeeklyPage::WeeklyPage(QWidget *parent)
 {
     ui->setupUi(this);
 
+<<<<<<< HEAD
+    showData();
+    QTimer *timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &WeeklyPage::showData);
+    timer->start(300000);
+}
+
+void WeeklyPage::showData(){
+
+=======
 <<<<<<< HEAD
     float mon, tue, wed, thu, fri, sat, sun;
         mon = 50;
@@ -36,6 +50,7 @@ WeeklyPage::WeeklyPage(QWidget *parent)
     set_1->append(sat);  // sat
     set_1->append(sun);  // sun
 =======
+>>>>>>> 3a89fb51330640c0e8ba8622c6504dd0bff91c00
     data.loadData("data.txt");
 
     //Declare
@@ -70,7 +85,7 @@ WeeklyPage::WeeklyPage(QWidget *parent)
     QBarSet *set_1 = new QBarSet(" 1 ");
 
     for (int i = 0; i < 6; i++){
-       set_1->append(data.weekly.past[i]); //value
+        set_1->append(data.weekly.past[i]); //value
     }
     set_1->append(data.daily.pm);
 
@@ -99,10 +114,14 @@ WeeklyPage::WeeklyPage(QWidget *parent)
     QStringList day_list;
 
     for (int i = 0; i < 6; i++){
-          day_list.append(QString(data.weekly.past_date[5-i]));
+        day_list.append(QString(data.weekly.past_date[5-i]));
     }
+<<<<<<< HEAD
+    day_list.append(QString(data.daily.date));
+=======
      day_list.append(QString(data.daily.date));
 >>>>>>> ab1d932cbd8446e71a64bf40432cbe93af9eae64
+>>>>>>> 3a89fb51330640c0e8ba8622c6504dd0bff91c00
 
     QBarCategoryAxis *axis_x = new QBarCategoryAxis();  // AxisX
     axis_x->append(day_list);

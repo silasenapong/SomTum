@@ -3,9 +3,13 @@
 <<<<<<< HEAD
 
 =======
+<<<<<<< HEAD
+
+=======
 #include "cstdlib"
 #include "dataManager/datamanager.h"
 >>>>>>> ab1d932cbd8446e71a64bf40432cbe93af9eae64
+>>>>>>> 3a89fb51330640c0e8ba8622c6504dd0bff91c00
 
 DailyPage::DailyPage(QWidget *parent)
     : QWidget(parent)
@@ -13,6 +17,17 @@ DailyPage::DailyPage(QWidget *parent)
 {
     ui->setupUi(this);
 
+<<<<<<< HEAD
+    showData();
+
+    QTimer *timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &DailyPage::showData);
+    timer->start(300000);
+
+}
+
+void DailyPage::showData(){
+=======
 <<<<<<< HEAD
     // PM 2.5 level
 
@@ -41,6 +56,7 @@ DailyPage::DailyPage(QWidget *parent)
     daily_line->append(8,4);
     daily_line->append(9,3);
 =======
+>>>>>>> 3a89fb51330640c0e8ba8622c6504dd0bff91c00
     // LoadData
     data.loadData("data.txt");
 
