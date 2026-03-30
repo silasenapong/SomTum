@@ -22,7 +22,7 @@ monthly_max_date = 10/02/2022
 monthly_max = 420.41 
 monthly_min_date = 21/02/2022 
 monthly_min = 7.42 
-
+ 
 @ YEARLY
 yearly_avg = 88.5584 
 yearly_max_month = 16/11/2021
